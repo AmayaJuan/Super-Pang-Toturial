@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 836d78e9bf81f0d45a155e2d55ac4508
+timeCreated: 1492135229
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Gilgongo
+  fontNames:
+  - Gilgongo
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
