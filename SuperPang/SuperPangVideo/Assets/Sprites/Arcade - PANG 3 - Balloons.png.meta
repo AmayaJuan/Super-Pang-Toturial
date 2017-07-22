@@ -1,22 +1,14 @@
 fileFormatVersion: 2
-guid: 00f2d50ca35880d42b76096488dac677
-timeCreated: 1492485480
-licenseType: Free
+guid: 95005c05ef0c9024c97e6cdc078da309
+timeCreated: 1500750395
+licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Arcade - PANG 3 - Balloons_0
-    21300002: Arcade - PANG 3 - Balloons_1
-    21300004: Arcade - PANG 3 - Balloons_2
-    21300006: Arcade - PANG 3 - Balloons_3
-    21300008: Arcade - PANG 3 - Balloons_4
-    21300010: Arcade - PANG 3 - Balloons_5
-    21300012: Arcade - PANG 3 - Balloons_6
-    21300014: Arcade - PANG 3 - Balloons_7
+  fileIDToRecycleName: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    sRGBTexture: 0
+    sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -35,7 +27,7 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 1
+    filterMode: -1
     aniso: -1
     mipBias: -1
     wrapMode: 1
@@ -48,7 +40,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -66,137 +58,9 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Standalone
-    maxTextureSize: 1024
-    textureFormat: 12
-    textureCompression: 1
-    compressionQuality: 100
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 1
-  - buildTarget: Android
-    maxTextureSize: 2048
-    textureFormat: 47
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 1
-  - buildTarget: WebGL
-    maxTextureSize: 2048
-    textureFormat: 12
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 1
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Arcade - PANG 3 - Balloons_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 78
-        width: 64
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Arcade - PANG 3 - Balloons_1
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 78
-        width: 64
-        height: 62
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Arcade - PANG 3 - Balloons_2
-      rect:
-        serializedVersion: 2
-        x: 161
-        y: 85
-        width: 48
-        height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Arcade - PANG 3 - Balloons_3
-      rect:
-        serializedVersion: 2
-        x: 230
-        y: 85
-        width: 48
-        height: 45
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Arcade - PANG 3 - Balloons_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 65
-        height: 66
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Arcade - PANG 3 - Balloons_5
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 1
-        width: 63
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Arcade - PANG 3 - Balloons_6
-      rect:
-        serializedVersion: 2
-        x: 142
-        y: 0
-        width: 65
-        height: 66
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Arcade - PANG 3 - Balloons_7
-      rect:
-        serializedVersion: 2
-        x: 218
-        y: 5
-        width: 66
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 

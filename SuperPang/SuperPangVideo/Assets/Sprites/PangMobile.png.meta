@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5175bdb7de8544d4b977573edee47986
-timeCreated: 1493159798
-licenseType: Free
+guid: 2f160625b13ed224dbf4287ecab45feb
+timeCreated: 1500750479
+licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: TimePause
+    21300000: PangMobile_0
     21300002: PangMobile_1
     21300004: PangMobile_2
     21300006: PangMobile_3
@@ -21,43 +21,45 @@ TextureImporter:
     21300028: PangMobile_14
     21300030: PangMobile_15
     21300032: PangMobile_16
-    21300034: DoubleArrow
-    21300036: Gun
-    21300038: Ancle
-    21300040: Shield
+    21300034: PangMobile_17
+    21300036: PangMobile_18
+    21300038: PangMobile_19
+    21300040: PangMobile_20
     21300042: PangMobile_21
     21300044: PangMobile_22
-    21300046: Dynamite
+    21300046: PangMobile_23
     21300048: PangMobile_24
-    21300050: TimeStop
-    21300052: TimeSlow
-    21300054: Life
+    21300050: PangMobile_25
+    21300052: PangMobile_26
+    21300054: PangMobile_27
     21300056: PangMobile_28
     21300058: PangMobile_29
     21300060: PangMobile_30
     21300062: PangMobile_31
-    21300064: Fruit1
-    21300066: Fruit2
-    21300068: Fruit_03
-    21300070: Fruit_04
-    21300072: Fruit_05
-    21300074: Fruit_06
-    21300076: Fruit_07
-    21300078: Fruit_08
-    21300080: Fruit_09
-    21300082: Fruit_10
-    21300084: Fruit_11
-    21300086: Fruit_12
-    21300088: Fruit_13
-    21300090: Fruit_14
+    21300064: PangMobile_32
+    21300066: PangMobile_33
+    21300068: PangMobile_34
+    21300070: PangMobile_35
+    21300072: PangMobile_36
+    21300074: PangMobile_37
+    21300076: PangMobile_38
+    21300078: PangMobile_39
+    21300080: PangMobile_40
+    21300082: PangMobile_41
+    21300084: PangMobile_42
+    21300086: PangMobile_43
+    21300088: PangMobile_44
+    21300090: PangMobile_45
     21300092: PangMobile_46
     21300094: PangMobile_47
     21300096: PangMobile_48
     21300098: PangMobile_49
     21300100: PangMobile_50
     21300102: PangMobile_51
-    21300104: Fruit_01
-    21300106: Fruit_02
+    21300104: PangMobile_52
+    21300106: PangMobile_53
+    21300108: PangMobile_54
+    21300110: PangMobile_55
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -88,7 +90,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -107,23 +109,47 @@ TextureImporter:
   - buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
     maxTextureSize: 2048
-    textureFormat: 25
-    textureCompression: 2
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: tvOS
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   - buildTarget: Android
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -131,7 +157,7 @@ TextureImporter:
   - buildTarget: WebGL
     maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -140,7 +166,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TimePause
+      name: PangMobile_0
       rect:
         serializedVersion: 2
         x: 0
@@ -208,308 +234,9 @@ TextureImporter:
       name: PangMobile_5
       rect:
         serializedVersion: 2
-        x: 250
-        y: 186
-        width: 28
-        height: 28
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_6
-      rect:
-        serializedVersion: 2
-        x: 330
-        y: 204
-        width: 40
-        height: 11
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_8
-      rect:
-        serializedVersion: 2
-        x: 368
-        y: 168
-        width: 15
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_9
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 136
-        width: 24
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_10
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 136
-        width: 24
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_11
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 136
-        width: 27
-        height: 28
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_12
-      rect:
-        serializedVersion: 2
-        x: 115
-        y: 136
-        width: 27
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_13
-      rect:
-        serializedVersion: 2
-        x: 155
-        y: 136
-        width: 26
-        height: 30
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_14
-      rect:
-        serializedVersion: 2
-        x: 195
-        y: 136
-        width: 31
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_15
-      rect:
-        serializedVersion: 2
-        x: 235
-        y: 136
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_16
-      rect:
-        serializedVersion: 2
-        x: 280
-        y: 136
-        width: 24
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DoubleArrow
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 95
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Gun
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 95
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Ancle
-      rect:
-        serializedVersion: 2
-        x: 59
-        y: 95
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Shield
-      rect:
-        serializedVersion: 2
-        x: 84
-        y: 95
-        width: 12
-        height: 12
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_21
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 95
-        width: 16
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_22
-      rect:
-        serializedVersion: 2
-        x: 119
-        y: 95
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Dynamite
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 95
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_24
-      rect:
-        serializedVersion: 2
-        x: 169
-        y: 95
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: TimeStop
-      rect:
-        serializedVersion: 2
-        x: 194
-        y: 95
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: TimeSlow
-      rect:
-        serializedVersion: 2
-        x: 219
-        y: 95
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Life
-      rect:
-        serializedVersion: 2
-        x: 244
-        y: 95
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_28
-      rect:
-        serializedVersion: 2
-        x: 269
-        y: 95
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_29
-      rect:
-        serializedVersion: 2
-        x: 294
-        y: 95
-        width: 20
+        x: 192
+        y: 200
+        width: 21
         height: 15
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -517,267 +244,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PangMobile_30
-      rect:
-        serializedVersion: 2
-        x: 319
-        y: 95
-        width: 20
-        height: 8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_31
-      rect:
-        serializedVersion: 2
-        x: 344
-        y: 95
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Fruit_01
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 60
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Fruit_02
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 60
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Fruit_03
-      rect:
-        serializedVersion: 2
-        x: 59
-        y: 60
-        width: 20
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Fruit_04
-      rect:
-        serializedVersion: 2
-        x: 84
-        y: 60
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Fruit_05
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 60
-        width: 20
-        height: 18
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Fruit_06
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 60
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Fruit_07
-      rect:
-        serializedVersion: 2
-        x: 159
-        y: 60
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Fruit_08
-      rect:
-        serializedVersion: 2
-        x: 184
-        y: 60
-        width: 20
-        height: 18
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Fruit_09
-      rect:
-        serializedVersion: 2
-        x: 209
-        y: 60
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Fruit_10
-      rect:
-        serializedVersion: 2
-        x: 234
-        y: 60
-        width: 20
-        height: 18
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Fruit_11
-      rect:
-        serializedVersion: 2
-        x: 259
-        y: 60
-        width: 20
-        height: 19
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Fruit_12
-      rect:
-        serializedVersion: 2
-        x: 284
-        y: 60
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Fruit_13
-      rect:
-        serializedVersion: 2
-        x: 309
-        y: 60
-        width: 20
-        height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Fruit_14
-      rect:
-        serializedVersion: 2
-        x: 334
-        y: 60
-        width: 20
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_46
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 0
-        width: 47
-        height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_47
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 0
-        width: 44
-        height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_48
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_7
-      rect:
-        serializedVersion: 2
-        x: 303
-        y: 200
-        width: 6
-        height: 9
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_49
+      name: PangMobile_6
       rect:
         serializedVersion: 2
         x: 220
@@ -790,13 +257,572 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
+      name: PangMobile_7
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 186
+        width: 28
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_8
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 200
+        width: 6
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_9
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 204
+        width: 16
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_10
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 204
+        width: 23
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_11
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 168
+        width: 15
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 136
+        width: 24
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_13
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 136
+        width: 24
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_14
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 136
+        width: 27
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_15
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 136
+        width: 27
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_16
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 136
+        width: 26
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_17
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 136
+        width: 31
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_18
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 136
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_19
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 136
+        width: 24
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_20
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 125
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_21
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 95
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_22
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 95
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_23
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 95
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_24
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 95
+        width: 12
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_25
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 95
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_26
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 95
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_27
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 95
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_28
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 95
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_29
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 95
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_30
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 95
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_31
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 95
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_32
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 95
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_33
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 95
+        width: 20
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_34
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 95
+        width: 20
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_35
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 95
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_36
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 60
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_37
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 60
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_38
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 60
+        width: 20
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_39
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 60
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_40
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 60
+        width: 20
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_41
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 60
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_42
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 60
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_43
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 60
+        width: 20
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_44
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 60
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_45
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 60
+        width: 20
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_46
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 60
+        width: 20
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_47
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 60
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_48
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 60
+        width: 20
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_49
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 60
+        width: 20
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
       name: PangMobile_50
       rect:
         serializedVersion: 2
-        x: 192
-        y: 200
-        width: 21
-        height: 15
+        x: 9
+        y: 0
+        width: 47
+        height: 46
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -806,12 +832,64 @@ TextureImporter:
       name: PangMobile_51
       rect:
         serializedVersion: 2
+        x: 60
+        y: 0
+        width: 44
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_52
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 0
+        width: 48
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_53
+      rect:
+        serializedVersion: 2
         x: 182
         y: 9
         width: 5
         height: 37
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_54
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 18
+        width: 104
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PangMobile_55
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 3
+        width: 98
+        height: 10
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
