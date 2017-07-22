@@ -2,7 +2,7 @@
 
 public class AspectUtility : MonoBehaviour {
 	
-	public float _wantedAspectRatio = 1.3333333f;
+	public float _wantedAspectRatio = 1.77778f;
 	static float wantedAspectRatio;
 	static Camera cam;
 	static Camera backgroundCam;
