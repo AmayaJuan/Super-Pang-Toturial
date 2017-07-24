@@ -1,9 +1,21 @@
 fileFormatVersion: 2
 guid: 95005c05ef0c9024c97e6cdc078da309
-timeCreated: 1500750395
+timeCreated: 1500911532
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Arcade - PANG 3 - Balloons_0
+    21300002: Arcade - PANG 3 - Balloons_1
+    21300004: Arcade - PANG 3 - Balloons_2
+    21300006: Arcade - PANG 3 - Balloons_3
+    21300008: Arcade - PANG 3 - Balloons_4
+    21300010: Arcade - PANG 3 - Balloons_5
+    21300012: Arcade - PANG 3 - Balloons_6
+    21300014: Arcade - PANG 3 - Balloons_7
+    21300016: Arcade - PANG 3 - Balloons_8
+    21300018: Arcade - PANG 3 - Balloons_9
+    21300020: Arcade - PANG 3 - Balloons_10
+    21300022: Arcade - PANG 3 - Balloons_11
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,9 +70,213 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: tvOS
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Arcade - PANG 3 - Balloons_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 149
+        width: 64
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Arcade - PANG 3 - Balloons_1
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 149
+        width: 64
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Arcade - PANG 3 - Balloons_2
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 156
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Arcade - PANG 3 - Balloons_3
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 156
+        width: 48
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Arcade - PANG 3 - Balloons_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 71
+        width: 65
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Arcade - PANG 3 - Balloons_5
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 72
+        width: 63
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Arcade - PANG 3 - Balloons_6
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 71
+        width: 65
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Arcade - PANG 3 - Balloons_7
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 76
+        width: 66
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Arcade - PANG 3 - Balloons_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 65
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Arcade - PANG 3 - Balloons_9
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 3
+        width: 63
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Arcade - PANG 3 - Balloons_10
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 3
+        width: 65
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Arcade - PANG 3 - Balloons_11
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 9
+        width: 66
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
