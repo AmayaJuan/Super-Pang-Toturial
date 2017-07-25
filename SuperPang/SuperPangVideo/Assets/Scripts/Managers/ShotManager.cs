@@ -37,18 +37,27 @@ public class ShotManager : MonoBehaviour
     {
         if (numberOfShots < maxShots)
             return true;
+
         return false;
     }
 
     void Shot()
     {
-        Instantiate(shots[typeOfShot], player.position, Quaternion.identity);
+        if (typeOfShot != 3)
+            Instantiate(shots[typeOfShot], player.position, Quaternion.identity);
+        else
+        {
+            Instantiate(shots[3], new Vector2(player.position.x + .5f, player.position.y + 1), Quaternion.Euler(new Vector3(0, 0, -5)));
+            Instantiate(shots[3], new Vector2(player.position.x, player.position.y + 1), Quaternion.identity);
+            Instantiate(shots[3], new Vector2(player.position.x - .5f, player.position.y + 1), Quaternion.Euler(new Vector3(0, 0, 5)));
+        }
+
         numberOfShots++;
     }
 
     public void DestroyShot()
     {
-        if(numberOfShots > 0 && numberOfShots <= maxShots)
-        numberOfShots--;
+        if (numberOfShots > 0 && numberOfShots <= maxShots)
+            numberOfShots--;
     }
 }

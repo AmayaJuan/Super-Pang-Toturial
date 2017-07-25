@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ShotArrow : MonoBehaviour
 {
@@ -18,7 +16,6 @@ public class ShotArrow : MonoBehaviour
 	void Update ()
     {
         transform.position += Vector3.up * speed * Time.deltaTime;
-
         if ((transform.position.y - startPos.y) >= .2f)
             InstantiateChainGFX();
 	}
