@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallManager : MonoBehaviour
 {
     public static BallManager bm;
+    public bool spliting;
     public List<GameObject> balls = new List<GameObject>();
 
     void Awake()
@@ -51,5 +52,51 @@ public class BallManager : MonoBehaviour
     {
         balls.Remove(ball);
         Destroy(ball);
+    }
+
+    public void Dynamite(int maxNumberBalls)
+    {
+        StartCoroutine(DynamiteB(maxNumberBalls));
+    }
+
+    List<GameObject> FindBalls(int typeOfBall)
+    {
+        List<GameObject> ballsToDestroy = new List<GameObject>();
+
+        for (int i = 0; i < balls.Count; i++)
+        {
+            if (balls[i].GetComponent<Ball>().name.Contains(typeOfBall.ToString()) && balls[i] != null)
+                ballsToDestroy.Add(balls[i]);
+        }
+
+        return ballsToDestroy;
+    }
+
+    void ReloadList()
+    {
+        balls.Clear();
+        balls.AddRange(GameObject.FindGameObjectsWithTag("Ball"));
+    }
+
+    public IEnumerator DynamiteB(int maxNumberballs)
+    {
+        ReloadList();
+        spliting = true;
+        int numerToFInd = 1;
+
+        while (numerToFInd < maxNumberballs)
+        {
+            foreach (GameObject item in FindBalls(numerToFInd))
+            {
+                item.GetComponent<Ball>().Split();
+                Destroy(item);
+            }
+
+            yield return new WaitForSeconds(.4f);
+            ReloadList();
+            numerToFInd++;
+        }
+
+        spliting = false;
     }
 }
