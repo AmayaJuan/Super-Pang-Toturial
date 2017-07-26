@@ -31,13 +31,9 @@ public class BallManager : MonoBehaviour
         foreach (GameObject item in balls)
         {
             if (balls.IndexOf(item) % 2 == 0)
-            {
                 item.GetComponent<Ball>().right = true;
-            }
             else
-            {
                 item.GetComponent<Ball>().right = false;
-            }
 
             item.GetComponent<Ball>().StartForce(item);
         }

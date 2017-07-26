@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2f160625b13ed224dbf4287ecab45feb
-timeCreated: 1500750479
+timeCreated: 1501035382
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -25,9 +25,9 @@ TextureImporter:
     21300036: PangMobile_18
     21300038: PangMobile_19
     21300040: PangMobile_20
-    21300042: PangMobile_21
-    21300044: PangMobile_22
-    21300046: PangMobile_23
+    21300042: DoubleArrow
+    21300044: Gun
+    21300046: Ancle
     21300048: PangMobile_24
     21300050: PangMobile_25
     21300052: PangMobile_26
@@ -439,7 +439,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PangMobile_21
+      name: DoubleArrow
       rect:
         serializedVersion: 2
         x: 9
@@ -452,7 +452,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PangMobile_22
+      name: Gun
       rect:
         serializedVersion: 2
         x: 34
@@ -465,7 +465,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PangMobile_23
+      name: Ancle
       rect:
         serializedVersion: 2
         x: 59
