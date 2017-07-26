@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2f160625b13ed224dbf4287ecab45feb
-timeCreated: 1501035382
+timeCreated: 1501045076
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -28,9 +28,9 @@ TextureImporter:
     21300042: DoubleArrow
     21300044: Gun
     21300046: Ancle
-    21300048: PangMobile_24
-    21300050: PangMobile_25
-    21300052: PangMobile_26
+    21300048: Shield
+    21300050: Shield_1
+    21300052: Shield_2
     21300054: PangMobile_27
     21300056: PangMobile_28
     21300058: PangMobile_29
@@ -222,7 +222,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 155
-        y: 186
+        y: 185
         width: 28
         height: 32
       alignment: 7
@@ -365,7 +365,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 115
-        y: 136
+        y: 135
         width: 27
         height: 32
       alignment: 7
@@ -478,41 +478,41 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PangMobile_24
+      name: Shield
       rect:
         serializedVersion: 2
         x: 84
         y: 95
         width: 12
         height: 12
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PangMobile_25
+      name: Shield_1
       rect:
         serializedVersion: 2
         x: 99
         y: 95
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PangMobile_26
+      name: Shield_2
       rect:
         serializedVersion: 2
         x: 119
         y: 95
         width: 20
         height: 20
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -823,8 +823,8 @@ TextureImporter:
         y: 0
         width: 47
         height: 46
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -836,8 +836,8 @@ TextureImporter:
         y: 0
         width: 44
         height: 46
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -849,8 +849,8 @@ TextureImporter:
         y: 0
         width: 48
         height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

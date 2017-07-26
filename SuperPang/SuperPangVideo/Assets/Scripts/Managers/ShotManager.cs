@@ -31,6 +31,8 @@ public class ShotManager : MonoBehaviour
     {
         if (CanShot() && Input.GetKeyDown(KeyCode.X))
             Shot();
+        if (numberOfShots == maxShots && GameObject.FindGameObjectsWithTag("Arrow").Length == 0 && GameObject.FindGameObjectsWithTag("Ancle").Length == 0)
+            numberOfShots = 0;
 	}
 
     bool CanShot()
@@ -57,7 +59,7 @@ public class ShotManager : MonoBehaviour
 
     public void DestroyShot()
     {
-        if (numberOfShots > 0 && numberOfShots <= maxShots)
+        if (numberOfShots > 0 && numberOfShots < maxShots)
             numberOfShots--;
     }
 

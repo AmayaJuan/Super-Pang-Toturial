@@ -19,10 +19,15 @@ public class PawerUps : MonoBehaviour
     {
         int aleatory = Random.Range(0, 2);
 
-        if (aleatory == 0 || aleatory == 1)
+        if (aleatory == 0)
         {
             sr.sprite = powerUpsStatic[Random.Range(0, powerUpsStatic.Length)];
             gameObject.name = sr.sprite.name;
+        }
+        else
+        {
+            Instantiate(powerUpsAnimated[Random.Range(0, powerUpsAnimated.Length)], transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
 	}
 
