@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2f160625b13ed224dbf4287ecab45feb
-timeCreated: 1501045076
+timeCreated: 1501258377
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -33,7 +33,7 @@ TextureImporter:
     21300052: Shield_2
     21300054: PangMobile_27
     21300056: PangMobile_28
-    21300058: PangMobile_29
+    21300058: TimeStop
     21300060: PangMobile_30
     21300062: PangMobile_31
     21300064: PangMobile_32
@@ -543,7 +543,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PangMobile_29
+      name: TimeStop
       rect:
         serializedVersion: 2
         x: 194
