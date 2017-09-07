@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2f160625b13ed224dbf4287ecab45feb
-timeCreated: 1504753221
+timeCreated: 1504762923
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -309,21 +309,7 @@ TextureImporter:
         serializedVersion: 2
         x: 330
         y: 204
-        width: 16
-        height: 11
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PangMobile_10
-      rect:
-        serializedVersion: 2
-        x: 347
-        y: 204
-        width: 23
+        width: 40
         height: 11
       alignment: 7
       pivot: {x: 0.5, y: 0}
