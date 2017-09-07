@@ -46,7 +46,5 @@ public class SelectMode : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Return))
                 SceneManager.LoadScene("Panic");
         }
-
-        
     }
 }
