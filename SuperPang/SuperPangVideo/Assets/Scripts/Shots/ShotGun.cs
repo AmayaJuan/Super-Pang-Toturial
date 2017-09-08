@@ -16,6 +16,12 @@ public class ShotGun : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Ball")
+        {
+            collision.gameObject.GetComponent<Ball>().Split();
+            ShotManager.shm.DestroyShot();
+        }
+
         Destroy(gameObject);
     }
 }

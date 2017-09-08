@@ -36,6 +36,13 @@ public class ShotAncle : MonoBehaviour
     {
         if (collision.gameObject.tag == "Roof")
             StartCoroutine(DestroyAncle());
+
+        if (collision.gameObject.tag == "Ball")
+        {
+            collision.gameObject.GetComponent<Ball>().Split();
+            Destroy(gameObject);
+            ShotManager.shm.DestroyShot();
+        }
     }
 
     IEnumerator DestroyAncle()
