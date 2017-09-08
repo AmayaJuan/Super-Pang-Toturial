@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2f160625b13ed224dbf4287ecab45feb
-timeCreated: 1504762923
+timeCreated: 1504838280
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -60,9 +60,9 @@ TextureImporter:
     21300106: PangMobile_53
     21300108: PangMobile_54
     21300110: PangMobile_55
-    21300112: PangMobile_21
-    21300114: PangMobile_22
-    21300116: PangMobile_23
+    21300112: DoubleArrow
+    21300114: Gun
+    21300116: Ancle
     21300118: PangMobile_24
     21300120: PangMobile_25
     21300122: PangMobile_26
@@ -458,11 +458,11 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PangMobile_21
+      name: DoubleArrow
       rect:
         serializedVersion: 2
         x: 9
-        y: 95
+        y: 94
         width: 20
         height: 20
       alignment: 7
@@ -472,7 +472,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PangMobile_22
+      name: Gun
       rect:
         serializedVersion: 2
         x: 34
@@ -486,7 +486,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PangMobile_23
+      name: Ancle
       rect:
         serializedVersion: 2
         x: 59
