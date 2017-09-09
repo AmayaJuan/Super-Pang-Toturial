@@ -60,6 +60,11 @@ public class BallManager : MonoBehaviour
         StartCoroutine(DynamiteB(maxNumberBalls));
     }
 
+    public void SlowTime()
+    {
+        StartCoroutine(TimeSlow());
+    }
+
     List<GameObject>FindBalls(int typeOfBall)
     {
         List<GameObject> ballsToDestroy = new List<GameObject>();
@@ -99,5 +104,33 @@ public class BallManager : MonoBehaviour
         }
 
         spliting = false;
+    }
+
+    public IEnumerator TimeSlow()
+    {
+        float time = 0;
+
+        foreach (GameObject item in balls)
+        {
+            if (item != null)
+                item.GetComponent<Ball>().SlowBall();
+        }
+
+        while (time < 3)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        foreach (GameObject item in balls)
+        {
+            if (item != null)
+                item.GetComponent<Ball>().NormalSpeedBall();
+        }
+    }
+
+    public int AleatoryNumber()
+    {
+        return Random.Range(0, 3);
     }
 }

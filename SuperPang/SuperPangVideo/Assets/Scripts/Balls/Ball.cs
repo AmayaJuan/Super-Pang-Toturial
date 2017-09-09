@@ -6,9 +6,11 @@ public class Ball : MonoBehaviour
 {
     public bool right;
     public GameObject nextBall;
+    public GameObject powerUp;
 
     Vector2 currentVelocity;
     Rigidbody2D rb;
+   
 
     private void Awake()
     {
@@ -19,6 +21,7 @@ public class Ball : MonoBehaviour
     {
         if (nextBall != null)
         {
+            InstaciatePrize();
             GameObject ball1 = Instantiate(nextBall, rb.position + Vector2.right / 4, Quaternion.identity);
             GameObject ball2 = Instantiate(nextBall, rb.position + Vector2.left / 4, Quaternion.identity);
 
@@ -79,5 +82,28 @@ public class Ball : MonoBehaviour
                
             }
         }
+    }
+
+    public void SlowBall()
+    {
+        rb.velocity /= 1.4f; // rb.velocity = rb.velovity / 4
+        rb.gravityScale = .5f;
+    }
+
+    public void NormalSpeedBall()
+    {
+        if (rb.velocity.x < 0)
+            rb.velocity = new Vector2(-2, rb.velocity.y);
+        else
+            rb.velocity = new Vector2(2, rb.velocity.y);
+        rb.gravityScale = 1f;
+    }
+
+    void InstaciatePrize()
+    {
+        int aleatory = BallManager.bm.AleatoryNumber();
+
+        if (aleatory == 1)
+            Instantiate(powerUp, transform.position, Quaternion.identity);
     }
 }

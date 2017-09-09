@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2f160625b13ed224dbf4287ecab45feb
-timeCreated: 1504932641
+timeCreated: 1504975207
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -34,7 +34,7 @@ TextureImporter:
     21300054: PangMobile_27
     21300056: PangMobile_28
     21300058: TimeStop
-    21300060: PangMobile_30
+    21300060: TimeSlow
     21300062: PangMobile_31
     21300064: PangMobile_32
     21300066: PangMobile_33
@@ -600,7 +600,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PangMobile_30
+      name: TimeSlow
       rect:
         serializedVersion: 2
         x: 219
