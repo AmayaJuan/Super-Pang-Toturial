@@ -7,7 +7,7 @@ public class BallManager : MonoBehaviour
     public static BallManager bm;
     public bool spliting;
 
-    List<GameObject> balls = new List<GameObject>();
+    public List<GameObject> balls = new List<GameObject>();
 
     void Awake()
     {
