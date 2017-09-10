@@ -40,8 +40,13 @@ public class ShotAncle : MonoBehaviour
         if (collision.gameObject.tag == "Ball")
         {
             collision.gameObject.GetComponent<Ball>().Split();
-            Destroy(gameObject);
-            ShotManager.shm.DestroyShot();
+            Destroy();
+        }
+
+        if (collision.gameObject.tag == "Hexagon")
+        {
+            collision.gameObject.GetComponent<Hexagon>().Split();
+            Destroy();
         }
     }
 
@@ -55,6 +60,12 @@ public class ShotAncle : MonoBehaviour
             item.GetComponent<SpriteRenderer>().color = Color.red; // new Color(1, 0, 0, 1)
 
         yield return new WaitForSeconds(1);
+        Destroy(gameObject);
+        ShotManager.shm.DestroyShot();
+    }
+
+    void Destroy()
+    {
         Destroy(gameObject);
         ShotManager.shm.DestroyShot();
     }

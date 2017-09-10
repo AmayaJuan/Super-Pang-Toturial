@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Hexagon : MonoBehaviour
 {
@@ -48,7 +46,7 @@ public class Hexagon : MonoBehaviour
             {
                 hex1.GetComponent<Hexagon>().forceX = forceX;
                 hex1.GetComponent<Hexagon>().forceY = forceY;
-                hex2.GetComponent<Hexagon>().forceX = forceX;
+                hex2.GetComponent<Hexagon>().forceX = -forceX;
                 hex2.GetComponent<Hexagon>().forceY = forceY;
             }
             else
@@ -84,6 +82,8 @@ public class Hexagon : MonoBehaviour
             {
                 currentForceX = item.GetComponent<Hexagon>().forceX;
                 currentForceY = item.GetComponent<Hexagon>().forceY;
+                item.GetComponent<Hexagon>().forceX = 0;
+                item.GetComponent<Hexagon>().forceY = 0;
                 item.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
         }
@@ -103,23 +103,33 @@ public class Hexagon : MonoBehaviour
 
     public void SlowHexagon()
     {
-        rb.velocity /= 1.4f; // rb.velocity = rb.velovity / 4
-        rb.gravityScale = .5f;
+        if (rb.velocity.x < 0)
+            forceX = -3;
+        else
+            forceX = 3;
+
+        if (rb.velocity.y < 0)
+            forceY = -3;
+        else
+            forceY = 3;
     }
 
     public void NormalSpeedHexagon()
     {
         if (rb.velocity.x < 0)
-            rb.velocity = new Vector2(-forceX, forceY);
+            forceX = -5;
         else
-            rb.velocity = new Vector2(forceY, forceY);
+            forceX = 5;
 
-        rb.gravityScale = 1f;
+        if (rb.velocity.y < 0)
+            forceY = -5;
+        else
+            forceY = 5;
     }
 
     void InstaciatePrize()
     {
-        int aleatory = BallManager.bm.AleatoryNumber();
+        int aleatory = GameManager.gm.AleatoryNumber();
 
         if (aleatory == 1)
             Instantiate(powerUp, transform.position, Quaternion.identity);

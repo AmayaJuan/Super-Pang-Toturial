@@ -8,17 +8,12 @@ public class BallManager : MonoBehaviour
     public bool spliting;
     public List<GameObject> balls = new List<GameObject>();
 
-    [HideInInspector]
-    public Player player;
-
     void Awake()
     {
         if (bm == null)
             bm = this;
         else if (bm != this)
             Destroy(gameObject);
-
-        player = FindObjectOfType<Player>();
     }
 
     void Start ()
@@ -134,10 +129,5 @@ public class BallManager : MonoBehaviour
             if (item != null)
                 item.GetComponent<Ball>().NormalSpeedBall();
         }
-    }
-
-    public int AleatoryNumber()
-    {
-        return Random.Range(0, 3);
     }
 }

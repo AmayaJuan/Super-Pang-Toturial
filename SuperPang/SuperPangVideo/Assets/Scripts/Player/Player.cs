@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Ball")
+        if (collision.gameObject.tag == "Ball" || collision.gameObject.tag == "Hexagon")
         {
             if (shield.activeInHierarchy)
             {
@@ -131,6 +131,7 @@ public class Player : MonoBehaviour
         GameManager.inGame = false;
         animator.SetBool("Lose", true);
         BallManager.bm.LoseGame();
+        HexagonManager.hm.LoseGame();
         yield return new WaitForSeconds(1);
         rb.isKinematic = false;
 

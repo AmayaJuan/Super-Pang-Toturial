@@ -132,9 +132,4 @@ public class HexagonManager : MonoBehaviour
                 item.GetComponent<Hexagon>().NormalSpeedHexagon();
         }
     }
-
-    public int AleatoryNumber()
-    {
-        return Random.Range(0, 3);
-    }
 }

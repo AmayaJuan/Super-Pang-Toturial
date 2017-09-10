@@ -17,10 +17,10 @@ public class ShotGun : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ball")
-        {
             collision.gameObject.GetComponent<Ball>().Split();
-            ShotManager.shm.DestroyShot();
-        }
+
+        if (collision.gameObject.tag == "Hexagon")
+            collision.gameObject.GetComponent<Hexagon>().Split();
 
         Destroy(gameObject);
     }

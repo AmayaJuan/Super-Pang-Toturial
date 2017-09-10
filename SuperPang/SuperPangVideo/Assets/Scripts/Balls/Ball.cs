@@ -99,7 +99,7 @@ public class Ball : MonoBehaviour
 
     void InstaciatePrize()
     {
-        int aleatory = BallManager.bm.AleatoryNumber();
+        int aleatory = GameManager.gm.AleatoryNumber();
 
         if (aleatory == 1)
             Instantiate(powerUp, transform.position, Quaternion.identity);
