@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
     public static bool inGame;
     public GameObject ready;
+    public Text timeText;
 
+    float time;
     Player player;
 
     void Awake()
@@ -30,6 +33,12 @@ public class GameManager : MonoBehaviour
         {
             inGame = false;
             player.Win();
+        }
+
+        if (inGame)
+        {
+            time -= Time.deltaTime;
+            timeText.text = "TIME " + time.ToString("f0");
         }
 	}
 
