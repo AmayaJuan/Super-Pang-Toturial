@@ -78,8 +78,7 @@ public class Ball : MonoBehaviour
             if (item != null)
             {
                 item.GetComponent<Rigidbody2D>().isKinematic = false;
-                item.GetComponent<Rigidbody2D>().AddForce(currentVelocity, ForceMode2D.Impulse);
-               
+                item.GetComponent<Rigidbody2D>().AddForce(currentVelocity, ForceMode2D.Impulse);   
             }
         }
     }
