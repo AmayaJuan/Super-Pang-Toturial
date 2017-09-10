@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
@@ -22,18 +20,19 @@ public class Ball : MonoBehaviour
         if (nextBall != null)
         {
             InstaciatePrize();
+
             GameObject ball1 = Instantiate(nextBall, rb.position + Vector2.right / 4, Quaternion.identity);
+            ball1.GetComponent<Ball>().right = true;
             GameObject ball2 = Instantiate(nextBall, rb.position + Vector2.left / 4, Quaternion.identity);
+            ball2.GetComponent<Ball>().right = false;
 
             if (!FreezeManager.fm.freeze)
             {
                 ball1.GetComponent<Rigidbody2D>().isKinematic = false;
-                ball1.GetComponent<Rigidbody2D>().AddForce(new Vector2(2, 5), ForceMode2D.Impulse);
-                ball1.GetComponent<Ball>().right = true;
+                ball1.GetComponent<Rigidbody2D>().AddForce(new Vector2(2, 5), ForceMode2D.Impulse);           
 
                 ball2.GetComponent<Rigidbody2D>().isKinematic = false;
-                ball2.GetComponent<Rigidbody2D>().AddForce(new Vector2(-2, 5), ForceMode2D.Impulse);
-                ball1.GetComponent<Ball>().right = false;
+                ball2.GetComponent<Rigidbody2D>().AddForce(new Vector2(-2, 5), ForceMode2D.Impulse);         
             }
             else
             {

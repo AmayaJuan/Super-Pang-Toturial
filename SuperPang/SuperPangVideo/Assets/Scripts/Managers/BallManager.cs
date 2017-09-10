@@ -8,7 +8,8 @@ public class BallManager : MonoBehaviour
     public bool spliting;
     public List<GameObject> balls = new List<GameObject>();
 
-    Player player;
+    [HideInInspector]
+    public Player player;
 
     void Awake()
     {
@@ -24,15 +25,6 @@ public class BallManager : MonoBehaviour
     {
         balls.AddRange(GameObject.FindGameObjectsWithTag("Ball"));
     }
-	
-	void Update ()
-    {
-        if (balls.Count == 0)
-        {
-            player.Win();
-            GameManager.inGame = false;
-        }
-	}
 
     public void StartGame()
     {
