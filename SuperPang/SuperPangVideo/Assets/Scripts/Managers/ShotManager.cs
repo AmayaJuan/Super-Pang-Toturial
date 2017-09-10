@@ -9,6 +9,7 @@ public class ShotManager : MonoBehaviour
     public GameObject[] shots;
 
     Animator animator;
+    CurrentShotImage shotImage;
     Transform player;
 
     void Awake()
@@ -17,7 +18,9 @@ public class ShotManager : MonoBehaviour
             shm = this;
         else if (shm != this)
             Destroy(gameObject);
+
         player = FindObjectOfType<Player>().transform;
+        shotImage = FindObjectOfType<CurrentShotImage>();
     }
 
     void Start ()
@@ -70,18 +73,22 @@ public class ShotManager : MonoBehaviour
             {
                 case 0:
                     maxShots = 1;
+                    shotImage.CurrentShot("");
                     break;
 
                 case 1:
                     maxShots = 2;
+                    shotImage.CurrentShot("Arrow");
                     break;
 
                 case 2:
                     maxShots = 1;
+                    shotImage.CurrentShot("Ancle");
                     break;
 
                 case 3:
                     maxShots = 15;
+                    shotImage.CurrentShot("Gun");
                     break;
             }
 

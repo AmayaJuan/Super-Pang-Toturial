@@ -67,17 +67,20 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Ball" || collision.gameObject.tag == "Hexagon")
+        if (GameManager.inGame && !FreezeManager.fm.freeze)
         {
-            if (shield.activeInHierarchy)
+            if (collision.gameObject.tag == "Ball" || collision.gameObject.tag == "Hexagon")
             {
-                shield.SetActive(false);
-                StartCoroutine(Blinking());
-            }
-            else
-            {
-                if (!blink)
-                    StartCoroutine(Lose());
+                if (shield.activeInHierarchy)
+                {
+                    shield.SetActive(false);
+                    StartCoroutine(Blinking());
+                }
+                else
+                {
+                    if (!blink)
+                        StartCoroutine(Lose());
+                }
             }
         }
 
