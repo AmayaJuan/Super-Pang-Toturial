@@ -8,7 +8,6 @@ public class ScoreManager : MonoBehaviour
 
     int curentScore = 0;
 
-
     void Awake()
     {
         if (sm == null)

@@ -49,6 +49,7 @@ public class Ball : MonoBehaviour
         int score = Random.Range(100, 301);
         PopUpManager.pop.InstanciatePopUpText(gameObject.transform.position, score);
         ScoreManager.sm.UpdateScore(score);
+        GameManager.gm.UpdateBallsDestroyed();
     }
 
     public void StartForce(GameObject ball)
