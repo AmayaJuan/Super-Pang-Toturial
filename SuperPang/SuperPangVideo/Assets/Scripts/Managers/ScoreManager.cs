@@ -5,8 +5,7 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager sm;
     public Text scoreText;
-
-    int curentScore = 0;
+    public int curentScore = 0;
 
     void Awake()
     {

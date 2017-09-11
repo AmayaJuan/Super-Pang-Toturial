@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -10,9 +11,9 @@ public class GameManager : MonoBehaviour
     public GameObject ready;
     public Text timeText;
     public int fruitsCatched = 0;
+    public int ballsDestroyed = 0;
+    public float time = 100;
 
-    float time = 100;
-    int ballsDestroyed = 0;
     Fruits fruits;
     LifeManager lm;
     PanelPoints panelPoints;
@@ -58,9 +59,12 @@ public class GameManager : MonoBehaviour
         ballsDestroyed++;
 
         if (ballsDestroyed % Random.Range(5, 15) == 0 && BallManager.bm.balls.Count > 0)
-        {
             fruits.InstaciateFruit(); 
-        }
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public IEnumerator GameStart()
