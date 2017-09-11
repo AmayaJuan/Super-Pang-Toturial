@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -25,7 +24,7 @@ public class PanelPoints : MonoBehaviour
         totalFruits.text = "X " + fruits.ToString();
         time = (int)GameManager.gm.time + 1;
         totalTime.text = time.ToString() + " Seg";
-        SetTotalScore(ScoreManager.sm.curentScore);
+        SetTotalScore(ScoreManager.sm.currentScore);
         StartCoroutine(TotalscoreAmount());
     }
 

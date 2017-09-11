@@ -16,15 +16,22 @@ public class LifeManager : MonoBehaviour
         animator = lifeDoll.GetComponent<Animator>();
     }
 	
-	public void UpdateLifes (int life)
+	public void AmountLifes ()
     {
-        if (life > 0)
-            lifes += life;
-        else
-            lifes -= life;
+        lifes++;
+        UpdateLifesText();
+    }
 
-        lifesText.text = "X " + lifesText.ToString();
-	}
+    public void SubstracLifes()
+    {
+        lifes--;
+        UpdateLifesText();
+    }
+
+    public void UpdateLifesText()
+    {
+        lifesText.text = "X " + lifes.ToString();
+    }
 
     public void LifeWin()
     {
@@ -34,5 +41,11 @@ public class LifeManager : MonoBehaviour
     public void LifeLose()
     {
         animator.SetBool("Lose", true);
+    }
+
+    public void RestartLifesDoll()
+    {
+        animator.SetBool("Win", false);
+        animator.SetBool("Lose", false);
     }
 }

@@ -14,9 +14,11 @@ public class GameManager : MonoBehaviour
     public int ballsDestroyed = 0;
     public float time = 100;
 
+    [HideInInspector]
+    public PanelPoints panelPoints;
+
     Fruits fruits;
     LifeManager lm;
-    PanelPoints panelPoints;
     Player player;
 
     void Awake()
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
     void Start ()
     {
         StartCoroutine(GameStart());
+        ScoreManager.sm.UpdateHiScore();
 	}
 	
 	void Update ()
@@ -64,6 +67,7 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
+        lm.RestartLifesDoll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

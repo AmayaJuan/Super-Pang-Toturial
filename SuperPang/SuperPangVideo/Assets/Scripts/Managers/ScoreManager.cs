@@ -4,8 +4,10 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager sm;
+    public Text hiScoreText;
     public Text scoreText;
-    public int curentScore = 0;
+    public int currentScore = 0;
+    public int hiScore = 500;
 
     void Awake()
     {
@@ -17,13 +19,26 @@ public class ScoreManager : MonoBehaviour
 
     void Start ()
     {
-        curentScore = 0;
-        scoreText.text = curentScore.ToString();
+        currentScore = 0;
+        scoreText.text = currentScore.ToString();
 	}
 	
 	public void UpdateScore (int score)
     {
-        curentScore += score;
-        scoreText.text = curentScore.ToString();
+        currentScore += score;
+        scoreText.text = currentScore.ToString();
+
+        if (currentScore > hiScore)
+        {
+            hiScore = currentScore;
+            hiScoreText.text = "HI " + hiScore.ToString();
+            PlayerPrefs.SetInt("HiScore", hiScore);
+        }
+    }
+
+    public void UpdateHiScore()
+    {
+        hiScore = PlayerPrefs.GetInt("HiScore");
+        hiScoreText.text = "HI " + hiScore.ToString();
     }
 }

@@ -6,11 +6,13 @@ public class PowerUps : MonoBehaviour
     public Sprite[] powerUpsStatic;
 
     bool inGround;
+    LifeManager lm;
     SpriteRenderer sr;
 
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
+        lm = FindObjectOfType<LifeManager>();
     }
 
     void Start ()
@@ -57,6 +59,8 @@ public class PowerUps : MonoBehaviour
                 BallManager.bm.SlowTime();
                 HexagonManager.hm.SlowTime();
             }
+            else if (gameObject.name.Equals("Life"))
+                lm.AmountLifes();
 
             Destroy(gameObject);
         }     
