@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
     float movement = 0;
     float speed = 4f;
     Animator animator;
+    LifeManager lm;
     Rigidbody2D rb;
     SpriteRenderer sr;
 
@@ -19,6 +21,7 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        lm = FindObjectOfType<LifeManager>();
     }
 	
 	void Update ()
@@ -63,6 +66,16 @@ public class Player : MonoBehaviour
     {
         shield.SetActive(false);
         animator.SetBool("Win", true);
+    }
+
+    void OnBecameInvisible()
+    {
+        Invoke("ReloadLevel", .5f);
+    }
+
+    void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -135,6 +148,7 @@ public class Player : MonoBehaviour
         animator.SetBool("Lose", true);
         BallManager.bm.LoseGame();
         HexagonManager.hm.LoseGame();
+        lm.LifeLose();
         yield return new WaitForSeconds(1);
         rb.isKinematic = false;
 

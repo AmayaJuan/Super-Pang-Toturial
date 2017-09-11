@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Text timeText;
 
     float time = 100;
+    LifeManager lm;
     Player player;
 
     void Awake()
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
 
         player = FindObjectOfType<Player>();
+        lm = FindObjectOfType<LifeManager>();
     }
 
     void Start ()
@@ -33,6 +35,7 @@ public class GameManager : MonoBehaviour
         {
             inGame = false;
             player.Win();
+            lm.LifeWin();
         }
 
         if (inGame)
