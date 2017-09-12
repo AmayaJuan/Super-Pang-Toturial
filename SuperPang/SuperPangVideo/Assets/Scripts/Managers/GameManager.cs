@@ -3,10 +3,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+public enum GameMode {PANIC, TOUR};
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
     public static bool inGame;
+    public GameMode gameMode;
     public GameObject panel;
     public GameObject ready;
     public Text timeText;
@@ -31,6 +34,11 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<Player>();
         lm = FindObjectOfType<LifeManager>();
         fruits = FindObjectOfType<Fruits>();
+
+        if (SceneManager.GetActiveScene().name.Equals("Panic"))
+            gameMode = GameMode.PANIC;
+        else
+            gameMode = GameMode.TOUR;
     }
 
     void Start ()
@@ -41,19 +49,32 @@ public class GameManager : MonoBehaviour
 	
 	void Update ()
     {
-        if (BallManager.bm.balls.Count == 0 && HexagonManager.hm.hexagons.Count == 0)
-        {
-            inGame = false;
-            player.Win();
-            lm.LifeWin();
-            panel.SetActive(true);
-            panelPoints = panel.GetComponent<PanelPoints>();
-        }
+        if (Input.GetKeyDown(KeyCode.O))
+            PlayerPrefs.DeleteAll();
 
-        if (inGame)
+        if (gameMode == GameMode.TOUR)
         {
-            time -= Time.deltaTime;
-            timeText.text = "TIME " + time.ToString("f0");
+            if (BallManager.bm.balls.Count == 0 && HexagonManager.hm.hexagons.Count == 0)
+            {
+                inGame = false;
+                player.Win();
+                lm.LifeWin();
+                panel.SetActive(true);
+                panelPoints = panel.GetComponent<PanelPoints>();
+            }
+
+            if (inGame)
+            {
+                time -= Time.deltaTime;
+                timeText.text = "TIME " + time.ToString("f0");
+            }
+        }
+        else
+        {
+            if (BallManager.bm.balls.Count == 0 && HexagonManager.hm.hexagons.Count == 0  && BallSpawn.bs.free)
+            {
+                BallSpawn.bs.NewBall();
+            }
         }
 	}
 
@@ -75,8 +96,15 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         ready.SetActive(false);
-        BallManager.bm.StartGame();
-        HexagonManager.hm.StartGame();
+
+        if (gameMode == GameMode.TOUR)
+        {
+            BallManager.bm.StartGame();
+            HexagonManager.hm.StartGame();
+        }
+        else
+            BallSpawn.bs.NewBall();
+       
         inGame = true;
     }
 
