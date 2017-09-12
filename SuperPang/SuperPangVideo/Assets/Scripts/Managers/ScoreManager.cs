@@ -4,10 +4,11 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager sm;
-    public Text hiScoreText;
     public Text scoreText;
+    public Text hiScoreText;
     public int currentScore = 0;
-    public int hiScore = 500;
+
+    int hiScore = 500;
 
     void Awake()
     {
@@ -17,13 +18,13 @@ public class ScoreManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    void Start ()
+    void Start()
     {
         currentScore = 0;
         scoreText.text = currentScore.ToString();
-	}
-	
-	public void UpdateScore (int score)
+    }
+
+    public void UpdateScore(int score)
     {
         currentScore += score;
         scoreText.text = currentScore.ToString();
