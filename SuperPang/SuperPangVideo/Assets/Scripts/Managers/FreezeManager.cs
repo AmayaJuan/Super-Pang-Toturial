@@ -28,14 +28,12 @@ public class FreezeManager : MonoBehaviour
 		
 	}
 
-    public void StartFreeze()
+    public void StartFreeze(float time)
     {
-        freezeTime = 3;
+        freezeTime = time;
 
         if (!freeze)
-        {
             StartCoroutine(FreezeTime());
-        }
     }
 
     public IEnumerator FreezeTime()
