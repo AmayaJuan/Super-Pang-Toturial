@@ -35,12 +35,9 @@ public class ShotArrow : MonoBehaviour
 
         if (collision.gameObject.tag == "Hexagon")
             collision.gameObject.GetComponent<Hexagon>().Split();
-
-        if (GameManager.gm.gameMode == GameMode.TOUR || (GameManager.gm.gameMode == GameMode.PANIC && BallSpawn.bs.free))
-        {
+      
             if (collision.gameObject.name.Contains("Special"))
                 FreezeManager.fm.StartFreeze(1.5f);
-        }
 
         Destroy(gameObject);
         ShotManager.shm.DestroyShot();    

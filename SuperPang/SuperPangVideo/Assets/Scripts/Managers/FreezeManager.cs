@@ -25,12 +25,13 @@ public class FreezeManager : MonoBehaviour
 	
 	void Update ()
     {
-		
+        if (Input.GetKeyDown(KeyCode.F))
+            StartFreeze(6);
 	}
 
     public void StartFreeze(float time)
     {
-        freezeTime = time;
+        freezeTime += time;
 
         if (!freeze)
             StartCoroutine(FreezeTime());
@@ -77,5 +78,7 @@ public class FreezeManager : MonoBehaviour
         }
 
         freeze = false;
+
+        StartCoroutine(BallSpawn.bs.MoveDown());
     }
 }

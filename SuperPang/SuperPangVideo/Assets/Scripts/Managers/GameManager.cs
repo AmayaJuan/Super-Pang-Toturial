@@ -130,6 +130,7 @@ public class GameManager : MonoBehaviour
             {
                 progressBar.fillAmount = 0;
                 currentLevel++;
+                BallSpawn.bs.IncreaseDificulty();
 
                 if (currentLevel < 10)
                     levelText.text = "Level 0" + currentLevel.ToString(); 

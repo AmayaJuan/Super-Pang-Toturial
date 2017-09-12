@@ -6,14 +6,16 @@ public class Ball : MonoBehaviour
     public GameObject nextBall;
     public GameObject specialBall;
     public GameObject powerUp;
+    public Sprite[] sprites;
 
-    Vector2 currentVelocity;
     Rigidbody2D rb;
-   
-
+    SpriteRenderer sr;
+    Vector2 currentVelocity;
+  
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     public void Split()
@@ -119,5 +121,18 @@ public class Ball : MonoBehaviour
 
         if (aleatory == 1)
             Instantiate(powerUp, transform.position, Quaternion.identity);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground" && (gameObject.name.Equals("DestroyBall") || gameObject.name.Equals("StopBall")))
+        {
+            if (sr.sprite == sprites[0])
+                sr.sprite = sprites[1];
+            else
+                sr.sprite = sprites[0];
+          
+            gameObject.name = sr.sprite.name;
+        }
     }
 }
