@@ -42,7 +42,11 @@ public class ShotArrow : MonoBehaviour
         if (collision.gameObject.tag == "Hexagon")
             collision.gameObject.GetComponent<Hexagon>().Split();
 
-        Destroy(gameObject);
-        ShotManager.shm.DestroyShot();    
+        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Ladder")
+        {
+            Destroy(gameObject);
+            ShotManager.shm.DestroyShot();
+        }
+          
     }
 }
