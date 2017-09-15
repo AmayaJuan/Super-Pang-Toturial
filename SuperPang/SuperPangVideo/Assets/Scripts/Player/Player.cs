@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    bool rightWall;
+    bool leftWall;
     float movementX = 0;
     float speedX = 4.0f;
     Animator animator;
@@ -35,6 +37,38 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (leftWall)
+        {
+            if (Input.GetKey(KeyCode.LeftArrow))
+                speedX = 0;
+            else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
+                speedX = 4;
+        }
+
+        if (rightWall)
+        {
+            if (Input.GetKey(KeyCode.RightArrow))
+                speedX = 0;
+            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+                speedX = 4;
+        }
+
         rb.MovePosition(rb.position + Vector2.right * movementX * Time.fixedDeltaTime);
+    }
+
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Left")
+            leftWall = true;
+        else if (other.gameObject.tag == "Right")
+            rightWall = true;
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Left")
+            leftWall = false;
+        else if (other.gameObject.tag == "Right")
+            rightWall = false;
     }
 }
