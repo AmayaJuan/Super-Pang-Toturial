@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SelectMode : MonoBehaviour
-{/*
+{
     public Image tourModeImage;
     public Image panicModeImage;
     public Text tourModeText;
@@ -42,10 +42,10 @@ public class SelectMode : MonoBehaviour
                 SceneManager.LoadScene("Panic");
         }
     }
-    */
-
+    /*
     public void NextNivel(string name)
     {
         SceneManager.LoadScene(name);
     }
+    */
 }
