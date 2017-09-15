@@ -49,7 +49,7 @@ public class ShotManager : MonoBehaviour
 
     public void DestroyShot()
     {
-        if (numberOfShots > 0 && numberOfShots < maxShots)
+        if (numberOfShots > 0 && numberOfShots <= maxShots)
             numberOfShots--;
     }
 }
