@@ -4,10 +4,10 @@ public class ShotManager : MonoBehaviour
 {
     public static ShotManager shm;
     public GameObject[] shots;
+    public int maxShots;
+    public int numberOfShots = 0;
+    public int typeOfShot; // 0 - Arrow // 1- Double Arrow // 2 - Ancle // 3 - Laser
 
-    int maxShots;
-    int numberOfShots = 0;
-    int typeOfShot; // 0 - Arrow // 1- Double Arrow // 2 - Ancle // 3 - Laser
     Animator animator;
     Transform player;
 
@@ -43,7 +43,15 @@ public class ShotManager : MonoBehaviour
 
     void Shot()
     {
-        Instantiate(shots[typeOfShot], player.position, Quaternion.identity);
+        if (typeOfShot != 3)
+            Instantiate(shots[typeOfShot], player.position, Quaternion.identity);
+        else
+        {
+            Instantiate(shots[typeOfShot], new Vector2(player.position.x + .5f, player.position.y + 1), Quaternion.Euler(new Vector3(0, 0, -5)));
+            Instantiate(shots[typeOfShot], new Vector2(player.position.x, player.position.y + 1), Quaternion.identity);
+            Instantiate(shots[typeOfShot], new Vector2(player.position.x - .5f, player.position.y + 1), Quaternion.Euler(new Vector3(0, 0, 5)));
+        }
+
         numberOfShots++;
     }
 
