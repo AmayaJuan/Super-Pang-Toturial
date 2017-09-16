@@ -18,6 +18,7 @@ public class BallManager : MonoBehaviour
     void Start ()
     {
         balls.AddRange(GameObject.FindGameObjectsWithTag("Ball"));
+        StartGame();
 	}
 	
 	void Update ()
@@ -25,11 +26,29 @@ public class BallManager : MonoBehaviour
 		
 	}
 
+    public void StartGame()
+    {
+        foreach (GameObject item in balls)
+        {
+            if (balls.IndexOf(item) % 2 == 0)
+                item.GetComponent<Ball>().right = true;
+            else
+                item.GetComponent<Ball>().right = false;
+
+            item.GetComponent<Ball>().Startforce(item);
+        }
+    }
+
     public void DestroyBall(GameObject ball, GameObject ball1, GameObject ball2)
+    {
+        LastBall(ball);
+        balls.Add(ball1);
+        balls.Add(ball2);
+    }
+
+    public void LastBall(GameObject ball)
     {
         Destroy(ball);
         balls.Remove(ball);
-        balls.Add(ball1);
-        balls.Add(ball2);
     }
 }
