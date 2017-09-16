@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
         rb.MovePosition(rb.position + Vector2.right * movementX * Time.fixedDeltaTime);
     }
 
-    void OnCollisionStay2D(Collision2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "Left")
             leftWall = true;
@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
             rightWall = true;
     }
 
-    void OnCollisionExit2D(Collision2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == "Left")
             leftWall = false;
