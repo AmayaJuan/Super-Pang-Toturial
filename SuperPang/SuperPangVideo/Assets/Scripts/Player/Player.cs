@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public bool blink;
+    public GameObject shield;
+
     bool rightWall;
     bool leftWall;
     float movementX = 0;
@@ -56,6 +59,25 @@ public class Player : MonoBehaviour
         rb.MovePosition(rb.position + Vector2.right * movementX * Time.fixedDeltaTime);
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Ball")
+        {
+            if (shield.activeInHierarchy)
+            {
+                shield.SetActive(false);
+                StartCoroutine(Blinking());
+            }
+            else
+            {
+                if (!blink)
+                {
+
+                }
+            }
+        }
+    }
+
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "Left")
@@ -70,5 +92,25 @@ public class Player : MonoBehaviour
             leftWall = false;
         else if (other.gameObject.tag == "Right")
             rightWall = false;
+    }
+
+    public IEnumerator Blinking()
+    {
+        blink = true;
+
+        for (int i = 0; i < 8; i++)
+        {
+            if (blink)
+            {
+                sr.color = new Color(1, 1, 1, 0);
+                yield return new WaitForSeconds(.2f);
+                sr.color = new Color(1, 1, 1, 1);
+                yield return new WaitForSeconds(.2f);
+            }
+            else
+                break;
+        }
+
+        blink = false;
     }
 }
