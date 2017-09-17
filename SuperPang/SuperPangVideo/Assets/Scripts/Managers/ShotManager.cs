@@ -60,4 +60,32 @@ public class ShotManager : MonoBehaviour
         if (numberOfShots > 0 && numberOfShots <= maxShots)
             numberOfShots--;
     }
+
+    public void ChangeShot(int type)
+    {
+        if (typeOfShot != type)
+        {
+            switch(type)
+            {
+                case 0:
+                    maxShots = 1;
+                    break;
+
+                case 1:
+                    maxShots = 2;
+                    break;
+
+                case 2:
+                    maxShots = 1;
+                    break;
+
+                case 3:
+                    maxShots = 15;
+                    break;
+            }
+
+            typeOfShot = type;
+            numberOfShots = 0;
+        }
+    }
 }
