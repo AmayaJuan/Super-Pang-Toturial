@@ -51,6 +51,8 @@ public class PowerUps : MonoBehaviour
                 ShotManager.shm.ChangeShot(2);
             else if (gameObject.name.Equals("Gun"))
                 ShotManager.shm.ChangeShot(3);
+            else if (gameObject.name.Equals("TimeStop"))
+                FreezeManager.fm.StartFreeze();
 
             Destroy(gameObject);
         }
