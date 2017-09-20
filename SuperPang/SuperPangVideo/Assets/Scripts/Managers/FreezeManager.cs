@@ -57,6 +57,7 @@ public class FreezeManager : MonoBehaviour
         }
 
         freezeTimeCount.SetActive(false);
+        freezeTime = 0;
 
         foreach (GameObject item in BallManager.bm.balls)
         {
