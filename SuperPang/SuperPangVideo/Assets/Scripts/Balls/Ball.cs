@@ -6,6 +6,7 @@ public class Ball : MonoBehaviour
 {
     public bool right;
     public GameObject nextBall;
+    public GameObject powerUp;
 
     Vector2 currentVelocity;
     Rigidbody2D rb;
@@ -19,6 +20,7 @@ public class Ball : MonoBehaviour
     {
         if (nextBall != null)
         {
+            InstanciatePrize();
             GameObject ball1 = Instantiate(nextBall, rb.position + Vector2.right / 4, Quaternion.identity);
             ball1.GetComponent<Ball>().right = true;
             GameObject ball2 = Instantiate(nextBall, rb.position + Vector2.left / 4, Quaternion.identity);
@@ -76,5 +78,29 @@ public class Ball : MonoBehaviour
                 item.GetComponent<Rigidbody2D>().AddForce(currentVelocity, ForceMode2D.Impulse);
             }
         }
+    }
+
+    public void SlowBall()
+    {
+        rb.velocity /= 1.4f;
+        rb.gravityScale = .5f;
+    }
+
+    public void NormalSpeedBall()
+    {
+        if (rb.velocity.x < 0)
+            rb.velocity = new Vector2(-2, rb.velocity.y);
+        else
+            rb.velocity = new Vector2(2, rb.velocity.y);
+
+        rb.gravityScale = 1;
+    }
+
+    void InstanciatePrize()
+    {
+        int aleatory = BallManager.bm.AleatoryNumber();
+
+        if (aleatory == 1)
+            Instantiate(powerUp, transform.position, Quaternion.identity);
     }
 }
