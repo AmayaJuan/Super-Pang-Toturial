@@ -29,34 +29,46 @@ public class Player : MonoBehaviour
 	
 	void Update ()
     {
-        movementX = Input.GetAxisRaw("Horizontal") * speedX;
-        animator.SetInteger("VelX", Mathf.RoundToInt(movementX));
+        if (GameManager.inGame)
+        {
+            movementX = Input.GetAxisRaw("Horizontal") * speedX;
+            animator.SetInteger("VelX", Mathf.RoundToInt(movementX));
 
-        if (movementX < 0)
-            sr.flipX = true;
-        else
-            sr.flipX = false;
+            if (movementX < 0)
+                sr.flipX = true;
+            else
+                sr.flipX = false;
+        }
 	}
 
     void FixedUpdate()
     {
-        if (leftWall)
+        if (GameManager.inGame)
         {
-            if (Input.GetKey(KeyCode.LeftArrow))
-                speedX = 0;
-            else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
-                speedX = 4;
-        }
+            if (leftWall)
+            {
+                if (Input.GetKey(KeyCode.LeftArrow))
+                    speedX = 0;
+                else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
+                    speedX = 4;
+            }
 
-        if (rightWall)
-        {
-            if (Input.GetKey(KeyCode.RightArrow))
-                speedX = 0;
-            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
-                speedX = 4;
-        }
+            if (rightWall)
+            {
+                if (Input.GetKey(KeyCode.RightArrow))
+                    speedX = 0;
+                else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+                    speedX = 4;
+            }
 
-        rb.MovePosition(rb.position + Vector2.right * movementX * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + Vector2.right * movementX * Time.fixedDeltaTime);
+        }
+    }
+
+    public void Win()
+    {
+        shield.SetActive(false);
+        animator.SetBool("Win", true);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -72,9 +84,17 @@ public class Player : MonoBehaviour
             {
                 if (!blink)
                 {
-
+                    StartCoroutine(Lose());
                 }
             }
+        }
+
+        if (!GameManager.inGame && (other.gameObject.tag == "Right" || other.gameObject.tag == "Left"))
+        {
+            sr.flipX = !sr.flipX;
+            rb.velocity /= 3;
+            rb.velocity *= -1;
+            rb.AddForce(Vector3.up * 5, ForceMode2D.Impulse);
         }
     }
 
@@ -94,13 +114,13 @@ public class Player : MonoBehaviour
             rightWall = false;
     }
 
-    public IEnumerator Blinking()
+    IEnumerator Blinking()
     {
         blink = true;
 
         for (int i = 0; i < 8; i++)
         {
-            if (blink)
+            if (blink && GameManager.inGame)
             {
                 sr.color = new Color(1, 1, 1, 0);
                 yield return new WaitForSeconds(.2f);
@@ -112,5 +132,19 @@ public class Player : MonoBehaviour
         }
 
         blink = false;
+    }
+
+    IEnumerator Lose()
+    {
+        GameManager.inGame = false;
+        animator.SetBool("Lose", true);
+        BallManager.bm.LoseGame();
+        yield return new WaitForSeconds(1);
+        rb.isKinematic = false;
+
+        if (transform.position.x < 0)
+            rb.AddForce(new Vector2(-10, 10), ForceMode2D.Impulse);
+        else
+            rb.AddForce(new Vector2(10, 10), ForceMode2D.Impulse);
     }
 }

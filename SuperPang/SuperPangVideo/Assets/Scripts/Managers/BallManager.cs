@@ -8,23 +8,30 @@ public class BallManager : MonoBehaviour
     public static BallManager bm;
     public List<GameObject> balls = new List<GameObject>();
 
+    Player player;
+
     void Awake()
     {
         if (bm == null)
             bm = this;
         else if (bm != this)
             Destroy(gameObject);
+
+        player = FindObjectOfType<Player>();
     }
 
     void Start ()
     {
         balls.AddRange(GameObject.FindGameObjectsWithTag("Ball"));
-        StartGame();
 	}
 	
 	void Update ()
     {
-		
+        if (balls.Count == 0 )
+        {
+            player.Win();
+            GameManager.inGame = false;
+        }
 	}
 
     public void StartGame()
@@ -37,6 +44,15 @@ public class BallManager : MonoBehaviour
                 item.GetComponent<Ball>().right = false;
 
             item.GetComponent<Ball>().Startforce(item);
+        }
+    }
+
+    public void LoseGame()
+    {
+        foreach (GameObject item in balls)
+        {
+            item.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            item.GetComponent<Rigidbody2D>().isKinematic = true;
         }
     }
 
