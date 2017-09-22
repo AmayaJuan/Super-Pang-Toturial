@@ -8,30 +8,17 @@ public class BallManager : MonoBehaviour
     public static BallManager bm;
     public List<GameObject> balls = new List<GameObject>();
 
-    Player player;
-
     void Awake()
     {
         if (bm == null)
             bm = this;
         else if (bm != this)
             Destroy(gameObject);
-
-        player = FindObjectOfType<Player>();
     }
 
     void Start ()
     {
         balls.AddRange(GameObject.FindGameObjectsWithTag("Ball"));
-	}
-	
-	void Update ()
-    {
-        if (balls.Count == 0 )
-        {
-            player.Win();
-            GameManager.inGame = false;
-        }
 	}
 
     public void StartGame()
@@ -65,8 +52,8 @@ public class BallManager : MonoBehaviour
 
     public void LastBall(GameObject ball)
     {
-        Destroy(ball);
         balls.Remove(ball);
+        Destroy(ball);
     }
 
     public void Dynamite(int maxNumberBalls)

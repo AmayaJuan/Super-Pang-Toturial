@@ -7,13 +7,17 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
     public static bool inGame;
     public GameObject ready;
-    
+
+    Player player;
+
     void Awake()
     {
         if (gm == null)
             gm = this;
         else if (gm != this)
             Destroy(gameObject);
+
+        player = FindObjectOfType<Player>();
     }
 
     void Start ()
@@ -23,8 +27,12 @@ public class GameManager : MonoBehaviour
 	
 	void Update ()
     {
-		
-	}
+        if (HexagonManager.hm.hexagons.Count == 0 || BallManager.bm.balls.Count == 0)
+        {
+            player.Win();
+            inGame = false;
+        }
+    }
 
     IEnumerator GameStart()
     {
