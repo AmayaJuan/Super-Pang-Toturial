@@ -47,6 +47,12 @@ public class FreezeManager : MonoBehaviour
                 item.GetComponent<Ball>().FreezeBall(item);
         }
 
+        foreach (GameObject item in HexagonManager.hm.hexagons)
+        {
+            if (item != null)
+                item.GetComponent<Hexagon>().FreezeHexagon(item);
+        }
+
         freezeTimeCount.SetActive(true);
 
         while (freezeTime > 0)
@@ -63,6 +69,12 @@ public class FreezeManager : MonoBehaviour
         {
             if (item != null)
                 item.GetComponent<Ball>().UnFreezeBall(item);
+        }
+
+        foreach (GameObject item in HexagonManager.hm.hexagons)
+        {
+            if (item != null)
+                item.GetComponent<Hexagon>().UnFreezeHexagon(item);
         }
 
         freeze = false;

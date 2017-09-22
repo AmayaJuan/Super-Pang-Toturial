@@ -33,10 +33,13 @@ public class ShotArrow : MonoBehaviour
         if (other.gameObject.tag == "Ball")
             other.gameObject.GetComponent<Ball>().Split();
 
+        if (other.gameObject.tag == "Hexagon")
+            other.gameObject.GetComponent<Hexagon>().Split();
+
         //if (other.gameObject.tag != "Player")
-       // {
-            Destroy(gameObject);
-            ShotManager.shm.DestroyShot();
+        // {
+        Destroy(gameObject);
+        ShotManager.shm.DestroyShot();
         //}
     }
 }

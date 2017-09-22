@@ -2,14 +2,17 @@
 
 public class Hexagon : MonoBehaviour
 {
+    [HideInInspector]
     public bool right;
     public GameObject nextHexagon;
     public GameObject powerUp;
+    [HideInInspector]
+    public float forceX = 5;
+    [HideInInspector]
+    public float forceY = 5;
 
     float currentForceX;
-    float currentForceY;
-    float forceX = 5;
-    float forceY = 5;
+    float currentForceY; 
     float rotSpeed;
     Rigidbody2D rb;
 
@@ -24,7 +27,7 @@ public class Hexagon : MonoBehaviour
         {
             if (!FreezeManager.fm.freeze)
             {
-                rotSpeed = Time.deltaTime * 250;
+                rotSpeed = 250 * Time.deltaTime;
                 transform.Rotate(0, 0, rotSpeed);
                 rb.velocity = new Vector2(forceX, forceY);
             }
@@ -45,7 +48,7 @@ public class Hexagon : MonoBehaviour
             {
                 hex1.GetComponent<Hexagon>().forceX = forceX;
                 hex1.GetComponent<Hexagon>().forceY = forceY;
-                hex2.GetComponent<Hexagon>().forceX = forceX;
+                hex2.GetComponent<Hexagon>().forceX = -forceX;
                 hex2.GetComponent<Hexagon>().forceY = forceY;
             }
             else
@@ -80,6 +83,8 @@ public class Hexagon : MonoBehaviour
             {
                 currentForceX = item.GetComponent<Hexagon>().forceX;
                 currentForceY = item.GetComponent<Hexagon>().forceY;
+                item.GetComponent<Hexagon>().forceX = 0;
+                item.GetComponent<Hexagon>().forceY = 0;
                 item.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
         }
@@ -99,23 +104,33 @@ public class Hexagon : MonoBehaviour
 
     public void SlowHexagon()
     {
-        rb.velocity /= 1.4f;
-        rb.gravityScale = .5f;
+        if (rb.velocity.x < 0)
+            forceX = -3;
+        else
+            forceX = 3;
+
+        if (rb.velocity.y < 0)
+            forceY = -3;
+        else
+            forceY = 3;
     }
 
     public void NormalSpeedHexagon()
     {
         if (rb.velocity.x < 0)
-            rb.velocity = new Vector2(-forceX, forceY);
+            forceX = -5;
         else
-            rb.velocity = new Vector2(forceX, forceY);
+            forceX = 5;
 
-        rb.gravityScale = 1;
+        if (rb.velocity.y < 0)
+            forceY = -5;
+        else
+            forceY = 5;
     }
 
     void InstanciatePrize()
     {
-        int aleatory = HexagonManager.hm.AleatoryNumber();
+        int aleatory = GameManager.gm.AleatoryNumber();
 
         if (aleatory == 1)
             Instantiate(powerUp, transform.position, Quaternion.identity);
@@ -124,9 +139,9 @@ public class Hexagon : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Roof")
-            forceY *= 1;
+            forceY *= -1;
 
         if (other.gameObject.tag == "Left" || other.gameObject.tag == "Right")
-            forceX *= 1;
+            forceX *= -1;
     }
 }

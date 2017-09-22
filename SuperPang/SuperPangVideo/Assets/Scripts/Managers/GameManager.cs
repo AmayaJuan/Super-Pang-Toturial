@@ -27,10 +27,10 @@ public class GameManager : MonoBehaviour
 	
 	void Update ()
     {
-        if (HexagonManager.hm.hexagons.Count == 0 || BallManager.bm.balls.Count == 0)
+        if (HexagonManager.hm.hexagons.Count == 0 && BallManager.bm.balls.Count == 0)
         {
-            player.Win();
             inGame = false;
+            player.Win();
         }
     }
 
@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         ready.SetActive(false);
         BallManager.bm.StartGame();
+        HexagonManager.hm.StartGame();
         inGame = true;
+    }
+
+    public int AleatoryNumber()
+    {
+        return Random.Range(0, 3);
     }
 }

@@ -19,6 +19,9 @@ public class ShotGun : MonoBehaviour
         if (other.gameObject.tag == "Ball")
             other.gameObject.GetComponent<Ball>().Split();
 
+        if (other.gameObject.tag == "Hexagon")
+            other.gameObject.GetComponent<Hexagon>().Split();
+
         Destroy(gameObject);
     }
 }

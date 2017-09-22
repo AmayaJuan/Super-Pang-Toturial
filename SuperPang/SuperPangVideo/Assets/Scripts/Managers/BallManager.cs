@@ -129,9 +129,4 @@ public class BallManager : MonoBehaviour
                 item.GetComponent<Ball>().NormalSpeedBall();
         }
     }
-
-    public int AleatoryNumber()
-    {
-        return Random.Range(0, 3);
-    }
 }

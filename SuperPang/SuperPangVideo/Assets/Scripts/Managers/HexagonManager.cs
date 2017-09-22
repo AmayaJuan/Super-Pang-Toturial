@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class HexagonManager : MonoBehaviour
 {
+    [HideInInspector]
     public bool spliting;
     public static HexagonManager hm;
+    [HideInInspector]
     public List<GameObject> hexagons = new List<GameObject>();
 
     void Awake()
@@ -37,7 +39,11 @@ public class HexagonManager : MonoBehaviour
     public void LoseGame()
     {
         foreach (GameObject item in hexagons)
+        {
+            item.GetComponent<Hexagon>().forceX = 0;
+            item.GetComponent<Hexagon>().forceY = 0;
             item.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
     }
 
     public void DestroyHexagon(GameObject hexagon, GameObject hex1, GameObject hex2)
@@ -125,10 +131,5 @@ public class HexagonManager : MonoBehaviour
             if (item != null)
                 item.GetComponent<Hexagon>().NormalSpeedHexagon();
         }
-    }
-
-    public int AleatoryNumber()
-    {
-        return Random.Range(0, 3);
     }
 }

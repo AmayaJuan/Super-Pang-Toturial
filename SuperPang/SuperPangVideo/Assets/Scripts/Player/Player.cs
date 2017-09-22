@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [HideInInspector]
     public bool blink;
     public GameObject shield;
 
@@ -73,7 +74,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Ball")
+        if (other.gameObject.tag == "Ball" || other.gameObject.tag == "Hexagon")
         {
             if (shield.activeInHierarchy)
             {
@@ -139,6 +140,7 @@ public class Player : MonoBehaviour
         GameManager.inGame = false;
         animator.SetBool("Lose", true);
         BallManager.bm.LoseGame();
+        HexagonManager.hm.LoseGame();
         yield return new WaitForSeconds(1);
         rb.isKinematic = false;
 

@@ -40,9 +40,20 @@ public class ShotAncle : MonoBehaviour
         if (other.gameObject.tag == "Ball")
         {
             other.gameObject.GetComponent<Ball>().Split();
-            Destroy(gameObject);
-            ShotManager.shm.DestroyShot();
+            AncleDestroy();
         }
+
+        if (other.gameObject.tag == "Hexagon")
+        {
+            other.gameObject.GetComponent<Hexagon>().Split();
+            AncleDestroy();
+        }
+    }
+
+    void AncleDestroy()
+    {
+        Destroy(gameObject);
+        ShotManager.shm.DestroyShot();
     }
 
     IEnumerator DestroyAncle()
