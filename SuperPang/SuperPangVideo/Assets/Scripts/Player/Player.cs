@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -74,18 +73,19 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Ball" || other.gameObject.tag == "Hexagon")
+        if (GameManager.inGame && !FreezeManager.fm.freeze)
         {
-            if (shield.activeInHierarchy)
+            if (other.gameObject.tag == "Ball" || other.gameObject.tag == "Hexagon")
             {
-                shield.SetActive(false);
-                StartCoroutine(Blinking());
-            }
-            else
-            {
-                if (!blink)
+                if (shield.activeInHierarchy)
                 {
-                    StartCoroutine(Lose());
+                    shield.SetActive(false);
+                    StartCoroutine(Blinking());
+                }
+                else
+                {
+                    if (!blink)
+                        StartCoroutine(Lose());
                 }
             }
         }

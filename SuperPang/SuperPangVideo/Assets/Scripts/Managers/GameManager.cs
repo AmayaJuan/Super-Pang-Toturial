@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public Text timeText; 
     public GameObject ready;
 
-    float time;
+    float time = 100f;
     Player player;
 
     void Awake()
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         if (inGame)
         {
             time -= Time.deltaTime;
-            timeText.text = "TIME " + time.ToString("fo");
+            timeText.text = "TIME " + time.ToString("f0");
         }
     }
 
