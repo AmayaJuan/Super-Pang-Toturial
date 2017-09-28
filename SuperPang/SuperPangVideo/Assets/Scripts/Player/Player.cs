@@ -81,6 +81,8 @@ public class Player : MonoBehaviour
 
     void ReloadLevel()
     {
+        lm.SubstracLifes();
+        lm.RestartLifesDoll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

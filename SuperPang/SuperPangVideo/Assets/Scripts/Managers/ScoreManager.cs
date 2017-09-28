@@ -7,8 +7,10 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager sm;
     public Text scoreText;
+    public Text hiScoreText;
     [HideInInspector]
     public int currentScore = 0;
+    public int hiScore = 500;
 
     private void Awake()
     {
@@ -23,10 +25,23 @@ public class ScoreManager : MonoBehaviour
         currentScore = 0;
         scoreText.text = currentScore.ToString();
 	}
-	
-	public void UpdateScore (int score)
+
+    public void UpdateScore(int score)
     {
         currentScore += score;
         scoreText.text = currentScore.ToString();
-	}
+
+        if (currentScore > hiScore)
+        {
+            hiScore = currentScore;
+            hiScoreText.text = "HI - " + hiScore.ToString();
+            PlayerPrefs.SetInt("HiScore", hiScore);
+        }
+    }
+
+    public void UpdateHiScore()
+    {
+        hiScore = PlayerPrefs.GetInt("HiScore");
+        hiScoreText.text = "HI - " + hiScore.ToString();
+    }
 }

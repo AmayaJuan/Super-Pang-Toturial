@@ -19,14 +19,22 @@ public class LifeManager : MonoBehaviour
 		
 	}
 	
-	public void UpdateLifes (int life)
+	public void AmountLife()
     {
-        if (life > 0)
-            lifes += life;
-        else
-            lifes -= life;
-        lifesText.text = "X " + lifes.ToString();
+        lifes++;
+        UpdateLifesText();
 	}
+
+    public void SubstracLifes()
+    {
+        lifes--;
+        UpdateLifesText();
+    }
+
+    void UpdateLifesText()
+    {
+        lifesText.text = "X " + lifes.ToString();
+    }
 
     public void LifeWin()
     {
@@ -36,5 +44,11 @@ public class LifeManager : MonoBehaviour
     public void LifeLose()
     {
         animator.SetBool("Lose", true);
+    }
+
+    public void RestartLifesDoll()
+    {
+        animator.SetBool("Win", false);
+        animator.SetBool("Lose", false);
     }
 }
