@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 83a1bb09602952f4c8145c2e7b2fbdec
-timeCreated: 1505184634
-licenseType: Free
+timeCreated: 1506619754
+licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
     21300000: backgrounds2_0
@@ -192,8 +192,8 @@ TextureImporter:
         y: 3792
         width: 256
         height: 192
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.54547757}
       border: {x: 8, y: 8, z: 8, w: 8}
       outline: []
       physicsShape: []
