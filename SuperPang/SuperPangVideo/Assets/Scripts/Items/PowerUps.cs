@@ -54,7 +54,7 @@ public class PowerUps : MonoBehaviour
             else if (gameObject.name.Equals("Gun"))
                 ShotManager.shm.ChangeShot(3);
             else if (gameObject.name.Equals("TimeStop"))
-                FreezeManager.fm.StartFreeze();
+                FreezeManager.fm.StartFreeze(3);
             else if (gameObject.name.Equals("TimeSlow"))
             {
                 BallManager.bm.SlowTime();

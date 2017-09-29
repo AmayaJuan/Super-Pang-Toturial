@@ -26,8 +26,13 @@ public class ShotManager : MonoBehaviour
 
     void Start ()
     {
-        maxShots = 1;
-        typeOfShot = 0;
+        if (GameManager.gm.gameMode == GameMode.TOUR)
+        {
+            maxShots = 1;
+            typeOfShot = 0;
+        }
+        else
+            ChangeShot(1);
 	}
 	
 	void Update ()

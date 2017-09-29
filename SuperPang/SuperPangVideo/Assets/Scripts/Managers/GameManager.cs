@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
     public static bool inGame;
-    public Text timeText; 
+    public Text timeText;
     public GameObject ready;
     public GameObject panel;
     [HideInInspector]
@@ -20,10 +20,13 @@ public class GameManager : MonoBehaviour
     public float time = 100f;
     public GameMode gameMode;
 
+    int currentLevel = 1;
     Fruits fruits;
+    Image progressBar;
     LifeManager lm;
     PanelPoints panelPoints;
     Player player;
+    Text levelText;
 
     void Awake()
     {
@@ -46,7 +49,13 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(GameStart());
         ScoreManager.sm.UpdateHiScore();
-	}
+
+        progressBar = GameObject.FindGameObjectWithTag("Progress").GetComponent<Image>();
+        levelText = GameObject.FindGameObjectWithTag("Level").GetComponent<Text>();
+
+        if (gameMode == GameMode.PANIC)
+            progressBar.fillAmount = 0;
+    }
 	
 	void Update ()
     {
@@ -73,9 +82,7 @@ public class GameManager : MonoBehaviour
         else
         {
             if (HexagonManager.hm.hexagons.Count == 0 && BallManager.bm.balls.Count == 0 && BallHexagonSpawn.bs.free)
-            {
                 BallHexagonSpawn.bs.NewBall();
-            }
         }
     }
 
@@ -112,5 +119,26 @@ public class GameManager : MonoBehaviour
     public int AleatoryNumber()
     {
         return Random.Range(0, 3);
+    }
+
+    public void PanicProgress()
+    {
+        if (gameMode == GameMode.PANIC)
+        {
+            progressBar.fillAmount += .1f;
+
+            if (progressBar.fillAmount == 1)
+            {
+                progressBar.fillAmount = 0;
+                currentLevel++;
+
+                if (currentLevel < 10)
+                    levelText.text = "LEVEL 0" + currentLevel.ToString();
+                else
+                    levelText.text = "LEVEL " + currentLevel.ToString();
+
+                FindObjectOfType<BackgroundChange>().BackgroundChanges();
+            }
+        }
     }
 }

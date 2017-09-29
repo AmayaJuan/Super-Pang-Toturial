@@ -9,7 +9,12 @@ public class BackgroundChange : MonoBehaviour
 
 	void Start ()
     {
+        BackgroundChanges();
+    }
+
+    public void BackgroundChanges()
+    {
         currentBackground = GetComponent<Image>();
         currentBackground.sprite = backgrounds[Random.Range(0, backgrounds.Length)];
-	}
+    }
 }
