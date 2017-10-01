@@ -31,7 +31,7 @@ public class FreezeManager : MonoBehaviour
 
     public void StartFreeze(float time)
     {
-        freezeTime = time;
+        freezeTime += time;
 
         if (!freeze)
             StartCoroutine(FreezeTime());
@@ -78,5 +78,6 @@ public class FreezeManager : MonoBehaviour
         }
 
         freeze = false;
+        StartCoroutine(BallHexagonSpawn.bs.MoveDown());
     }
 }
