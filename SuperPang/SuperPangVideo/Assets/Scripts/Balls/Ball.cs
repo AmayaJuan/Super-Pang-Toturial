@@ -32,7 +32,7 @@ public class Ball : MonoBehaviour
 
             GameObject ball2 = null;
 
-            if (specialBall == null)
+            if (specialBall == null || GameManager.gm.gameMode == GameMode.TOUR)
                 ball2 = Instantiate(nextBall, rb.position + Vector2.left / 4, Quaternion.identity);
             else
                 ball2 = Instantiate(specialBall, rb.position + Vector2.left / 4, Quaternion.identity);
@@ -56,6 +56,9 @@ public class Ball : MonoBehaviour
         }
         else
             BallManager.bm.LastBall(gameObject);
+
+        if (name.Contains("Special"))
+            FreezeManager.fm.StartFreeze(1.5f);
 
         int score = Random.Range(100, 301);
         PopUpManager.pop.InstanciatePopUpText(gameObject.transform.position, score);

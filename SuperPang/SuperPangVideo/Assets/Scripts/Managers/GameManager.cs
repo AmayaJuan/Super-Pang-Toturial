@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Text timeText;
     public GameObject ready;
     public GameObject panel;
+    public GameObject gameOver;
     [HideInInspector]
     public int fruitsCached = 0;
     [HideInInspector]
@@ -40,7 +41,11 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<Player>();
 
         if (SceneManager.GetActiveScene().name.Equals("Panic"))
+        {
             gameMode = GameMode.PANIC;
+            progressBar = GameObject.FindGameObjectWithTag("Progress").GetComponent<Image>();
+            levelText = GameObject.FindGameObjectWithTag("Level").GetComponent<Text>();
+        }
         else
             gameMode = GameMode.TOUR;
     }
@@ -49,9 +54,7 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(GameStart());
         ScoreManager.sm.UpdateHiScore();
-
-        progressBar = GameObject.FindGameObjectWithTag("Progress").GetComponent<Image>();
-        levelText = GameObject.FindGameObjectWithTag("Level").GetComponent<Text>();
+        gameOver.SetActive(false); 
 
         if (gameMode == GameMode.PANIC)
             progressBar.fillAmount = 0;
@@ -100,6 +103,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void StartGameOver()
+    {
+        StartCoroutine(GameStart());
+    }
+
     IEnumerator GameStart()
     {
         yield return new WaitForSeconds(2);
@@ -114,6 +122,13 @@ public class GameManager : MonoBehaviour
             BallHexagonSpawn.bs.NewBall();
         
         inGame = true;
+    }
+
+    public IEnumerator GameOver()
+    {
+        gameOver.SetActive(true);
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(0);
     }
 
     public int AleatoryNumber()

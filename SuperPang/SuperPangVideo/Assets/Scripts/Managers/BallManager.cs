@@ -85,7 +85,7 @@ public class BallManager : MonoBehaviour
         balls.AddRange(GameObject.FindGameObjectsWithTag("Ball"));
     }
 
-    IEnumerator DynamiteB(int maxNumberBalls)
+    public IEnumerator DynamiteB(int maxNumberBalls)
     {
         ReloadList();
         spliting = true;
