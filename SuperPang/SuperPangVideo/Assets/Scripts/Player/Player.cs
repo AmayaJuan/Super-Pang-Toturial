@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    float speed = 4f;
+    readonly float speed = 4f;
     float movement = 0;
+    float newX;
     Rigidbody2D rb;
     Animator animator;
     SpriteRenderer sr;
@@ -31,5 +32,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + Vector2.right * movement * Time.fixedDeltaTime);
+        newX = Mathf.Clamp(transform.position.x, -8, 8);
+        transform.position = new Vector2(newX, transform.position.y);
     }
 }
