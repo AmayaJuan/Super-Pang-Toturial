@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    readonly float speed = 4f;
+    bool rightWall;
+    bool leftWall;
+    float speed = 4f;
     float movement = 0;
     float newX;
     Rigidbody2D rb;
@@ -31,8 +33,38 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (leftWall)
+        {
+            if (Input.GetKey(KeyCode.LeftArrow))
+                speed = 0;
+            else if (Input.GetKey(KeyCode.RightArrow))
+                speed = 4;
+        }
+
+        if (rightWall)
+        {
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
+                speed = 0;
+            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+                speed = 4;
+        }
+
         rb.MovePosition(rb.position + Vector2.right * movement * Time.fixedDeltaTime);
-        newX = Mathf.Clamp(transform.position.x, -8, 8);
-        transform.position = new Vector2(newX, transform.position.y);
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Left")
+            leftWall = true;
+        else if (collision.gameObject.tag == "Right")
+            rightWall = true;
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Left")
+            leftWall = false;
+        else if (collision.gameObject.tag == "Right")
+            rightWall = false;
     }
 }
