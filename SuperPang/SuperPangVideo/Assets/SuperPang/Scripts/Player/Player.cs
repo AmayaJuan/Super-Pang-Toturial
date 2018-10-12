@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -8,7 +6,6 @@ public class Player : MonoBehaviour
     bool leftWall;
     float speed = 4f;
     float movement = 0;
-    float newX;
     Rigidbody2D rb;
     Animator animator;
     SpriteRenderer sr;
