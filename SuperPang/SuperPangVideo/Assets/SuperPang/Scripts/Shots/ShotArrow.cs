@@ -1,20 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ShotArrow : MonoBehaviour
 {
-    float speed = 4f;
+    public GameObject chainGFX;
 
-	void Start ()
+    float speed = 4f;
+    Vector2 startPos;
+
+    void Start()
     {
-		
-	}
-	
-	void Update ()
+        startPos = transform.position;
+        InstanceChain();
+    }
+
+    void Update ()
     {
         transform.position += Vector3.up * speed * Time.deltaTime;
-	}
+
+        if ((transform.position.y - startPos.y) >= 0.2f)
+            InstanceChain();
+
+    }
+
+    void InstanceChain()
+    {
+        GameObject chain = Instantiate(chainGFX, transform.position, Quaternion.identity);
+        chain.transform.parent = transform;
+        startPos = transform.position;
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
