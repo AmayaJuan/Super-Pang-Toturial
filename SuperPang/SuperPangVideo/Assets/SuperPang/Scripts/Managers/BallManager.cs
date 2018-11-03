@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class BallManager : MonoBehaviour
@@ -41,7 +40,8 @@ public class BallManager : MonoBehaviour
 
     public void DestroyBall(GameObject ball, GameObject ball1, GameObject ball2)
     {
-        LastBall(gameObject);
+        Destroy(ball);
+        balls.Remove(ball);
         balls.Add(ball1);
         balls.Add(ball2);
     }
