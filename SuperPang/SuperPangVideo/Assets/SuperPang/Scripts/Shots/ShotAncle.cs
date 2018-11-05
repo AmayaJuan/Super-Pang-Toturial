@@ -35,8 +35,13 @@ public class ShotAncle : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Roof")
-        {
             StartCoroutine(DestroyAncle());
+
+        if (collision.gameObject.tag == "Ball")
+        {
+            collision.gameObject.GetComponent<Ball>().Split();
+            Destroy(gameObject);
+            ShotManager.shm.DestroyShot();
         }
     }
 

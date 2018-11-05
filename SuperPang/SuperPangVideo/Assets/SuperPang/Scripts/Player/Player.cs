@@ -1,7 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public GameObject shield;
+    public bool blink;
+
     bool rightWall;
     bool leftWall;
     float speed = 4f;
@@ -49,7 +53,26 @@ public class Player : MonoBehaviour
         rb.MovePosition(rb.position + Vector2.right * movement * Time.fixedDeltaTime);
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ball")
+        {
+            if (shield.activeInHierarchy)
+            {
+                shield.SetActive(false);
+                StartCoroutine(Blinking());
+            }
+            else
+            {
+                if (!blink)
+                {
+                    //FINALIZAR
+                }
+            }
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Left")
             leftWall = true;
@@ -57,11 +80,30 @@ public class Player : MonoBehaviour
             rightWall = true;
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Left")
             leftWall = false;
         else if (collision.gameObject.tag == "Right")
             rightWall = false;
+    }
+
+    public IEnumerator Blinking()
+    {
+        blink = true;
+
+        for (int i = 0; i < 8; i++)
+        {
+            if (blink)
+            {
+                sr.color = new Color(1, 1, 1, 0);
+                yield return new WaitForSeconds(0.2f);
+                sr.color = new Color(1, 1, 1, 1);
+                yield return new WaitForSeconds(0.2f);
+            }
+            else
+                break;
+        }
+        blink = false;
     }
 }

@@ -34,10 +34,7 @@ public class ShotArrow : MonoBehaviour
         if (collision.gameObject.tag == "Ball")
             collision.gameObject.GetComponent<Ball>().Split();
 
-        if (collision.gameObject.tag != "Player")
-        {
-            Destroy(gameObject);
-            ShotManager.shm.DestroyShot();
-        }
+        Destroy(gameObject);
+        ShotManager.shm.DestroyShot(); 
     }
 }

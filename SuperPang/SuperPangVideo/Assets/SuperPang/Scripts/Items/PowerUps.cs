@@ -22,6 +22,11 @@ public class PowerUps : MonoBehaviour
             sr.sprite = powerUpsStatic[Random.Range(0, powerUpsStatic.Length)];
             gameObject.name = sr.sprite.name;
         }
+        else
+        {
+            Instantiate(powerUpsAnimated[Random.Range(0, powerUpsAnimated.Length)], transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
 	}
 	
 	void Update ()
