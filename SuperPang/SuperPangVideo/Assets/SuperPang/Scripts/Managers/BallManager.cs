@@ -87,7 +87,7 @@ public class BallManager : MonoBehaviour
             foreach (GameObject item in FindBalls(numberToFind))
             {
                 item.GetComponent<Ball>().Split();
-                Destroy(gameObject);
+                Destroy(item);
             }
 
             yield return new WaitForSeconds(.4f);
