@@ -3,6 +3,7 @@
 public class Ball : MonoBehaviour
 {
     public GameObject nextBall;
+    public GameObject poweUp;
     public bool right;
 
     Vector2 currentVelocity;
@@ -17,6 +18,7 @@ public class Ball : MonoBehaviour
     {
         if (nextBall != null)
         {
+            InstanciatePrize();
             GameObject ball1 = Instantiate(nextBall, rb.position + Vector2.right / 4, Quaternion.identity);
             GameObject ball2 = Instantiate(nextBall, rb.position + Vector2.left / 4, Quaternion.identity);
 
@@ -53,7 +55,7 @@ public class Ball : MonoBehaviour
             ball.GetComponent<Rigidbody2D>().AddForce(Vector3.left * 2, ForceMode2D.Impulse);
     }
 
-    public void FreezeBall(params GameObject[] balls) // Params
+    public void FreezeBall(params GameObject[] balls) 
     {
         foreach (GameObject item in balls)
         {
@@ -66,7 +68,7 @@ public class Ball : MonoBehaviour
         }
     }
 
-    public void UnFreezeBall(params GameObject[] balls)//Params
+    public void UnFreezeBall(params GameObject[] balls)
     {
         foreach (GameObject item in balls)
         {
@@ -75,6 +77,32 @@ public class Ball : MonoBehaviour
                 item.GetComponent<Rigidbody2D>().isKinematic = false;
                 item.GetComponent<Rigidbody2D>().AddForce(currentVelocity, ForceMode2D.Impulse);
             }
+        }
+    }
+
+    public void SlowBall()
+    {
+        rb.velocity /= 1.4f;
+        rb.gravityScale = 0.5f;
+    }
+
+    public void NormalSpeedBall()
+    {
+        if (rb.velocity.x < 0)
+            rb.velocity = new Vector2(-2, rb.velocity.y);
+        else
+            rb.velocity = new Vector2(2, rb.velocity.y);
+
+        rb.gravityScale = 1f;
+    }
+
+    void InstanciatePrize()
+    {
+        int aleatory = BallManager.bm.AleatoryNumber();
+
+        if (aleatory == 1)
+        {
+            Instantiate(poweUp, transform.position, Quaternion.identity);
         }
     }
 }
