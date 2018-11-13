@@ -24,15 +24,6 @@ public class BallManager : MonoBehaviour
     {
         balls.AddRange(GameObject.FindGameObjectsWithTag("Ball"));
 	}
-	
-	void Update ()
-    {
-        if (balls.Count == 0)
-        {
-            player.Win();
-            GameManager.inGame = false;
-        }
-	}
 
     public void StartGame()
     {

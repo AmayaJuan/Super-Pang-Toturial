@@ -20,17 +20,17 @@ public class Ball : MonoBehaviour
         {
             InstanciatePrize();
             GameObject ball1 = Instantiate(nextBall, rb.position + Vector2.right / 4, Quaternion.identity);
+            ball1.GetComponent<Ball>().right = true;
             GameObject ball2 = Instantiate(nextBall, rb.position + Vector2.left / 4, Quaternion.identity);
+            ball2.GetComponent<Ball>().right = false;
 
             if (!FreezeManager.fm.freeze)
             {
                 ball1.GetComponent<Rigidbody2D>().isKinematic = false;
                 ball1.GetComponent<Rigidbody2D>().AddForce(new Vector2(2, 5), ForceMode2D.Impulse);
-                ball1.GetComponent<Ball>().right = true;
 
                 ball2.GetComponent<Rigidbody2D>().isKinematic = false;
                 ball2.GetComponent<Rigidbody2D>().AddForce(new Vector2(-2, 5), ForceMode2D.Impulse);
-                ball2.GetComponent<Ball>().right = false;
             }
             else
             {
@@ -101,8 +101,6 @@ public class Ball : MonoBehaviour
         int aleatory = BallManager.bm.AleatoryNumber();
 
         if (aleatory == 1)
-        {
             Instantiate(poweUp, transform.position, Quaternion.identity);
-        }
     }
 }
