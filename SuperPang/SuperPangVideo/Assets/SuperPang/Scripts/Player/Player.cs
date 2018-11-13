@@ -21,36 +21,48 @@ public class Player : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
-	void Update ()
+    void Update()
     {
-        movement = Input.GetAxisRaw("Horizontal") * speed;
-        animator.SetInteger("velX", Mathf.RoundToInt(movement));
+        if (GameManager.inGame)
+        {
+            movement = Input.GetAxisRaw("Horizontal") * speed;
+            animator.SetInteger("velX", Mathf.RoundToInt(movement));
 
-        if (movement < 0)
-            sr.flipX = true;
-        else
-            sr.flipX = false;
-	}
+            if (movement < 0)
+                sr.flipX = true;
+            else
+                sr.flipX = false;
+        }
+    }
 
     void FixedUpdate()
     {
-        if (leftWall)
+        if (GameManager.inGame)
         {
-            if (Input.GetKey(KeyCode.LeftArrow))
-                speed = 0;
-            else if (Input.GetKey(KeyCode.RightArrow))
-                speed = 4;
-        }
+            if (leftWall)
+            {
+                if (Input.GetKey(KeyCode.LeftArrow))
+                    speed = 0;
+                else if (Input.GetKey(KeyCode.RightArrow))
+                    speed = 4;
+            }
 
-        if (rightWall)
-        {
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
-                speed = 0;
-            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
-                speed = 4;
-        }
+            if (rightWall)
+            {
+                if (Input.GetKey(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
+                    speed = 0;
+                else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+                    speed = 4;
+            }
 
-        rb.MovePosition(rb.position + Vector2.right * movement * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + Vector2.right * movement * Time.fixedDeltaTime);
+        }
+    }
+
+    public void Win()
+    {
+        shield.SetActive(false);
+        animator.SetBool("win", true);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -65,10 +77,16 @@ public class Player : MonoBehaviour
             else
             {
                 if (!blink)
-                {
-                    //FINALIZAR
-                }
+                    StartCoroutine(Lose());
             }
+        }
+
+        if (!GameManager.inGame && (collision.gameObject.tag == "Right" || collision.gameObject.tag == "Left"))
+        {
+            sr.flipX = !sr.flipX;
+            rb.velocity /= 3;
+            rb.velocity *= -1;
+            rb.AddForce(Vector3.up * 5, ForceMode2D.Impulse);
         }
     }
 
@@ -94,7 +112,7 @@ public class Player : MonoBehaviour
 
         for (int i = 0; i < 8; i++)
         {
-            if (blink)
+            if (blink && GameManager.inGame)
             {
                 sr.color = new Color(1, 1, 1, 0);
                 yield return new WaitForSeconds(0.2f);
@@ -105,5 +123,20 @@ public class Player : MonoBehaviour
                 break;
         }
         blink = false;
+    }
+
+    IEnumerator Lose()
+    {
+        GameManager.inGame = false;
+        animator.SetBool("lose", true);
+        BallManager.bm.LoseGame();
+
+        yield return new WaitForSeconds(1f);
+        rb.isKinematic = false;
+
+        if (transform.position.x < 0)
+            rb.AddForce(new Vector2(-10, 10), ForceMode2D.Impulse);
+        else
+            rb.AddForce(new Vector2(10, 10), ForceMode2D.Impulse);
     }
 }

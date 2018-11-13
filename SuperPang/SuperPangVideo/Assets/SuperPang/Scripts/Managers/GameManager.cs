@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
+    public static bool inGame;
+
+    public GameObject ready;
 
     void Awake()
     {
@@ -16,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     void Start ()
     {
-        StartCoroutine(Ready());
+        StartCoroutine(GameStart());
 	}
 	
 	void Update ()
@@ -24,14 +27,11 @@ public class GameManager : MonoBehaviour
 		
 	}
 
-    public IEnumerator Ready()
-    {
-        StartCoroutine(GameStart());
-        yield return null;
-    }
-
     public IEnumerator GameStart()
     {
-        yield return null;
+        yield return new WaitForSeconds(2f);
+        ready.SetActive(false);
+        BallManager.bm.StartGame();
+        inGame = true;
     }
 }
