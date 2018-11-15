@@ -43,6 +43,10 @@ public class Ball : MonoBehaviour
         }
         else
             BallManager.bm.LastBall(gameObject);
+
+        int score = Random.Range(100, 301);
+        PopUpManager.pm.IntanciatePopUpText(gameObject.transform.position, score);
+        ScoreManager.sm.UpdateScore(score);
     }
 
     public void StartForce(GameObject ball)

@@ -63,6 +63,10 @@ public class Hexagon : MonoBehaviour
         }
         else
             HexagonManager.hm.LastHexagon(gameObject);
+
+        int score = Random.Range(100, 301);
+        PopUpManager.pm.IntanciatePopUpText(gameObject.transform.position, score);
+        ScoreManager.sm.UpdateScore(score);
     }
 
     public void StartForce(GameObject hex)

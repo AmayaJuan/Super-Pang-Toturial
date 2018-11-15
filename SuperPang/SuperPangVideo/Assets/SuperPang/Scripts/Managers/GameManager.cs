@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject ready;
     public Text timeText;
 
-    float time;
+    float time = 100;
     Player player;
 
     void Awake()

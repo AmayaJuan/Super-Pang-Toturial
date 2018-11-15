@@ -34,7 +34,7 @@ public class FruitItem : MonoBehaviour
         else if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Arrow" || collision.gameObject.tag == "Ancle")
         {
             int score = Random.Range(500, 1000);
-            //Sumar puntos
+            ScoreManager.sm.UpdateScore(score);
             PopUpManager.pm.IntanciatePopUpText(transform.position, score);
             Destroy(gameObject);
         }
