@@ -1,13 +1,16 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
     public static bool inGame;
-
     public GameObject ready;
+    public Text timeText;
+
+    float time;
+    Player player;
 
     void Awake()
     {
@@ -15,6 +18,8 @@ public class GameManager : MonoBehaviour
             gm = this;
         else if (gm != this)
             Destroy(gameObject);
+
+        player = FindObjectOfType<Player>();
     }
 
     void Start ()
@@ -24,7 +29,18 @@ public class GameManager : MonoBehaviour
 	
 	void Update ()
     {
-		
+		if(BallManager.bm.balls.Count == 0 && HexagonManager.hm.hexagons.Count == 0)
+        {
+            inGame = false;
+            player.Win();
+        }
+
+        if (inGame)
+        {
+            time -= Time.deltaTime;
+            timeText.text = "TIME: " + time.ToString("f0");
+        }
+
 	}
 
     public IEnumerator GameStart()
@@ -32,6 +48,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         ready.SetActive(false);
         BallManager.bm.StartGame();
+        HexagonManager.hm.StartGame();
         inGame = true;
+    }
+
+    public int AleatoryNumber()
+    {
+        return Random.Range(0, 3);
     }
 }

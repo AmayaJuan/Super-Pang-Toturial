@@ -8,16 +8,12 @@ public class HexagonManager : MonoBehaviour
     public List<GameObject> hexagons = new List<GameObject>();
     public bool spliting;
 
-    Player player;
-
     void Awake()
     {
         if (hm == null)
             hm = this;
         else if (hm != this)
             Destroy(gameObject);
-
-        player = FindObjectOfType<Player>();
     }
 
     void Start()
@@ -41,7 +37,11 @@ public class HexagonManager : MonoBehaviour
     public void LoseGame()
     {
         foreach (GameObject item in hexagons)
+        {
+            item.GetComponent<Hexagon>().forceX = 0;
+            item.GetComponent<Hexagon>().forceY = 0;
             item.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
     }
 
     public void DestroyHexagon(GameObject hexagon, GameObject hex1, GameObject hex2)
@@ -128,10 +128,5 @@ public class HexagonManager : MonoBehaviour
             if (item != null)
                 item.GetComponent<Hexagon>().NormalSpeedHexagon();
         }
-    }
-
-    public int AleatoryNumber()
-    {
-        return Random.Range(0, 3);
     }
 }

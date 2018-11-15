@@ -38,11 +38,13 @@ public class ShotAncle : MonoBehaviour
             StartCoroutine(DestroyAncle());
 
         if (collision.gameObject.tag == "Ball")
-        {
             collision.gameObject.GetComponent<Ball>().Split();
-            Destroy(gameObject);
-            ShotManager.shm.DestroyShot();
-        }
+
+        if (collision.gameObject.tag == "Hexagon")
+            collision.gameObject.GetComponent<Hexagon>().Split();
+
+        Destroy(gameObject);
+        ShotManager.shm.DestroyShot();
     }
 
     IEnumerator DestroyAncle()

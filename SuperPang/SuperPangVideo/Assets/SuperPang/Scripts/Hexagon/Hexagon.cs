@@ -46,7 +46,7 @@ public class Hexagon : MonoBehaviour
                 hex1.GetComponent<Hexagon>().forceX = forceX;
                 hex1.GetComponent<Hexagon>().forceY = forceY;
 
-                hex2.GetComponent<Hexagon>().forceX = forceX;
+                hex2.GetComponent<Hexagon>().forceX = -forceX;
                 hex2.GetComponent<Hexagon>().forceY = forceY;
             }
             else
@@ -54,7 +54,7 @@ public class Hexagon : MonoBehaviour
                 hex1.GetComponent<Hexagon>().currentForceX = forceX;
                 hex1.GetComponent<Hexagon>().currentForceY = forceY;
 
-                hex2.GetComponent<Hexagon>().currentForceX = forceX;
+                hex2.GetComponent<Hexagon>().currentForceX = -forceX;
                 hex2.GetComponent<Hexagon>().currentForceY = forceY;
             }
 
@@ -83,12 +83,14 @@ public class Hexagon : MonoBehaviour
             {
                 currentForceX = item.GetComponent<Hexagon>().forceX;
                 currentForceY = item.GetComponent<Hexagon>().forceY;
+                item.GetComponent<Hexagon>().forceX = 0;
+                item.GetComponent<Hexagon>().forceY = 0;
                 item.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
         }
     }
 
-    public void UnFreezeBall(params GameObject[] hexagons)
+    public void UnFreezeHexagon(params GameObject[] hexagons)
     {
         foreach (GameObject item in hexagons)
         {
@@ -102,23 +104,33 @@ public class Hexagon : MonoBehaviour
 
     public void SlowHexagon()
     {
-        rb.velocity /= 1.4f; // rb.velocity = rb.velocity / 4
-        rb.gravityScale = 0.5f;
+        if (rb.velocity.x < 0)
+            forceX = -3;
+        else
+            forceX = 3;
+
+        if (rb.velocity.y < 0)
+            forceY = -3;
+        else
+            forceY = 3;
     }
 
     public void NormalSpeedHexagon()
     {
         if (rb.velocity.x < 0)
-            rb.velocity = new Vector2(-forceX, forceY);
+            forceX = -5;
         else
-            rb.velocity = new Vector2(forceX, forceY);
+            forceX = 5;
 
-        rb.gravityScale = 1f;
+        if (rb.velocity.y < 0)
+            forceY = -5;
+        else
+            forceY = 5;
     }
 
     void InstanciatePrize()
     {
-        int aleatory = BallManager.bm.AleatoryNumber();
+        int aleatory = GameManager.gm.AleatoryNumber();
 
         if (aleatory == 1)
             Instantiate(poweUp, transform.position, Quaternion.identity);
