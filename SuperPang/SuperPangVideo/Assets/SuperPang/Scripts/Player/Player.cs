@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        Invoke("RealoadLevel", 0.5f);
+        Invoke("ReloadLevel", 0.5f);
     }
 
     void ReloadLevel()
