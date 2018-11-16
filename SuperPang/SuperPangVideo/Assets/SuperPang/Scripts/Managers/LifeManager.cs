@@ -26,11 +26,11 @@ public class LifeManager : MonoBehaviour
 
     public void LifesWin()
     {
-        animator.SetBool("win", true);
+        animator.SetBool("Win", true);
     }
 
     public void LifesLose()
     {
-        animator.SetBool("lose", true);
+        animator.SetBool("Lose", true);
     }
 }
