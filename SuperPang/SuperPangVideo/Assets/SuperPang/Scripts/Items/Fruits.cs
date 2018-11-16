@@ -8,10 +8,4 @@ public class Fruits : MonoBehaviour
     {
         Instantiate(fruitItem, transform.position, Quaternion.identity);
     }
-
-	void Update ()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            InstaciateFruit();
-	}
 }

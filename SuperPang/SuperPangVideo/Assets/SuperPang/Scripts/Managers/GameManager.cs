@@ -7,12 +7,17 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
     public static bool inGame;
     public GameObject ready;
+    public GameObject panel;
+    public int fruitsCached = 0;
     public Text timeText;
 
     float time = 100;
-    Player player;
+    int ballsDestroy = 0;
+    Fruits fruits;
     LifeManager lm;
-
+    PanelPoints panelPoints;
+    Player player;
+    
     void Awake()
     {
         if (gm == null)
@@ -22,6 +27,7 @@ public class GameManager : MonoBehaviour
 
         player = FindObjectOfType<Player>();
         lm = FindObjectOfType<LifeManager>();
+        fruits = FindObjectOfType<Fruits>();
     }
 
     void Start ()
@@ -36,6 +42,8 @@ public class GameManager : MonoBehaviour
             inGame = false;
             player.Win();
             lm.LifesWin();
+            panel.SetActive(true);
+            panelPoints = panel.GetComponent<PanelPoints>();
         }
 
         if (inGame)
@@ -45,6 +53,16 @@ public class GameManager : MonoBehaviour
         }
 
 	}
+
+    public void UpdateBallsDestroyed()
+    {
+        ballsDestroy++;
+
+        if (ballsDestroy % Random.Range(5, 20) == 0 && BallManager.bm.balls.Count > 0)
+        {
+            fruits.InstaciateFruit();
+        }
+    }
 
     public IEnumerator GameStart()
     {
