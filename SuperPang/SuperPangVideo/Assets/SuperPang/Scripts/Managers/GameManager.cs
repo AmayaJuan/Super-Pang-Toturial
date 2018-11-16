@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     float time = 100;
     Player player;
+    LifeManager lm;
 
     void Awake()
     {
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
 
         player = FindObjectOfType<Player>();
+        lm = FindObjectOfType<LifeManager>();
     }
 
     void Start ()
@@ -33,6 +35,7 @@ public class GameManager : MonoBehaviour
         {
             inGame = false;
             player.Win();
+            lm.LifesWin();
         }
 
         if (inGame)
