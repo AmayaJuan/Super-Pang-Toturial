@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,14 +9,18 @@ public class GameManager : MonoBehaviour
     public static bool inGame;
     public GameObject ready;
     public GameObject panel;
+    [HideInInspector]
+    public float time = 100;
+    [HideInInspector]
+    public int ballsDestroy = 0;
+    [HideInInspector]
     public int fruitsCached = 0;
     public Text timeText;
+    [HideInInspector]
+    public PanelPoints panelPoints;
 
-    float time = 100;
-    int ballsDestroy = 0;
     Fruits fruits;
     LifeManager lm;
-    PanelPoints panelPoints;
     Player player;
     
     void Awake()
@@ -62,6 +67,11 @@ public class GameManager : MonoBehaviour
         {
             fruits.InstaciateFruit();
         }
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public IEnumerator GameStart()

@@ -5,7 +5,9 @@ using UnityEngine;
 public class BallManager : MonoBehaviour
 {
     public static BallManager bm;
+    [HideInInspector]
     public List<GameObject> balls = new List<GameObject>();
+    [HideInInspector]
     public bool spliting;
 
     void Awake()

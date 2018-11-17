@@ -8,6 +8,7 @@ public class FreezeManager : MonoBehaviour
     public static FreezeManager fm;
     public Text freezeTimeText;
     public GameObject freezeTimeCount;
+    [HideInInspector]
     public float freezeTime;
     public bool freeze;
 
