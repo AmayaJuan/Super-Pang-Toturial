@@ -5,9 +5,11 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager sm;
     public Text scoreText;
-
+    public Text hiScoreText;
     [HideInInspector]
     public int currentScore;
+    [HideInInspector]
+    public int hiScore = 500;
 
     void Awake()
     {
@@ -27,5 +29,18 @@ public class ScoreManager : MonoBehaviour
     {
         currentScore += score;
         scoreText.text = currentScore.ToString();
+
+        if (currentScore > hiScore)
+        {
+            hiScore = currentScore;
+            hiScoreText.text = "HI - " + hiScore.ToString();
+            PlayerPrefs.SetInt("HiScore", hiScore);
+        }
 	}
+
+    public void UpdateHiScore()
+    {
+        hiScore = PlayerPrefs.GetInt("HiScore");
+        hiScoreText.text = "HI - " + hiScore.ToString();
+    }
 }

@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     void Start ()
     {
         StartCoroutine(GameStart());
+        ScoreManager.sm.UpdateHiScore();
 	}
 	
 	void Update ()
@@ -71,6 +72,7 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
+        lm.RestartLifesDoll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

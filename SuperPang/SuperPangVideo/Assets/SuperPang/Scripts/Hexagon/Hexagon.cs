@@ -4,8 +4,11 @@ public class Hexagon : MonoBehaviour
 {
     public GameObject nextHexagon;
     public GameObject poweUp;
+    [HideInInspector]
     public bool right;
+    [HideInInspector]
     public float forceX = 5f;
+    [HideInInspector]
     public float forceY = 5f;
 
     float currentForceX;

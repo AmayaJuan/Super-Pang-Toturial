@@ -4,8 +4,9 @@ using UnityEngine.UI;
 public class LifeManager : MonoBehaviour
 {
     public GameObject lifeDoll;
-    public int lifes = 3;
     public Text lifesText;
+    [HideInInspector]
+    public int lifes = 3;
 
     Animator animator;
 
@@ -14,15 +15,22 @@ public class LifeManager : MonoBehaviour
         animator = lifeDoll.GetComponent<Animator>();
     }
 	
-	public void UpdateLifes (int life)
+	public void AmountLifes ()
     {
-        if (lifes > 0)
-            lifes += life;
-        else
-            lifes -= life;
-
-        lifesText.text = "X " + lifes.ToString();
+        lifes++;
+        UpdateLifesText();
 	}
+
+    public void SubstractLifes()
+    {
+        lifes--;
+        UpdateLifesText();
+    }
+
+    public void UpdateLifesText()
+    {
+        lifesText.text = "X " + lifes.ToString();
+    }
 
     public void LifesWin()
     {
@@ -32,5 +40,11 @@ public class LifeManager : MonoBehaviour
     public void LifesLose()
     {
         animator.SetBool("Lose", true);
+    }
+
+    public void RestartLifesDoll()
+    {
+        animator.SetBool("Win", false);
+        animator.SetBool("Lose", false);
     }
 }

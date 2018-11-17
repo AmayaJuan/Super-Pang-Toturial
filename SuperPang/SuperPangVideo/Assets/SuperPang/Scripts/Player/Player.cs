@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public GameObject shield;
+    [HideInInspector]
     public bool blink;
 
     bool rightWall;
@@ -75,6 +76,8 @@ public class Player : MonoBehaviour
 
     void ReloadLevel()
     {
+        lm.SubstractLifes();
+        lm.RestartLifesDoll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
