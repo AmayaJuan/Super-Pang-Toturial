@@ -4,10 +4,10 @@ public class ShotManager : MonoBehaviour
 {
     public static ShotManager shm;
     public GameObject[] shots;
-    public int maxShots;
-    public int numberOfShots = 0;
-    public int typeOfShot; //0- Arrow //1- Double Arrow //2- Ancle //3- Laser
-
+    
+    int typeOfShot; //0- Arrow //1- Double Arrow //2- Ancle //3- Laser
+    int numberOfShots = 0;
+    int maxShots;
     Transform player;
     Animator anim;
     CurrentShotImage shotImage;
