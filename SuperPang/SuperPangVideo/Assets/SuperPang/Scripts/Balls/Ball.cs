@@ -3,6 +3,7 @@
 public class Ball : MonoBehaviour
 {
     public GameObject nextBall;
+    public GameObject specialBall;
     public GameObject poweUp;
     public bool right;
 
@@ -16,12 +17,22 @@ public class Ball : MonoBehaviour
 
     public void Split()
     {
+        GameManager.gm.PanicProgress();
+
         if (nextBall != null)
         {
-            InstanciatePrize();
+            if (GameManager.gm.gameMode == GameMode.TOUR)
+                InstanciatePrize();
+
             GameObject ball1 = Instantiate(nextBall, rb.position + Vector2.right / 4, Quaternion.identity);
             ball1.GetComponent<Ball>().right = true;
-            GameObject ball2 = Instantiate(nextBall, rb.position + Vector2.left / 4, Quaternion.identity);
+            GameObject ball2 = null;
+
+            if (specialBall == null)     
+                ball2 = Instantiate(nextBall, rb.position + Vector2.left / 4, Quaternion.identity);           
+            else
+                ball2 = Instantiate(specialBall, rb.position + Vector2.left / 4, Quaternion.identity);
+
             ball2.GetComponent<Ball>().right = false;
 
             if (!FreezeManager.fm.freeze)

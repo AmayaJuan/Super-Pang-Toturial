@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +9,7 @@ public class FreezeManager : MonoBehaviour
     public GameObject freezeTimeCount;
     [HideInInspector]
     public float freezeTime;
+    [HideInInspector]
     public bool freeze;
 
     void Awake()
@@ -24,15 +24,10 @@ public class FreezeManager : MonoBehaviour
     {
         freezeTimeCount.SetActive(false);
 	}
-	
-	void Update ()
-    {
-		
-	}
 
-    public void StartFreeze()
+    public void StartFreeze(float time)
     {
-        freezeTime = 3;
+        freezeTime = time;
 
         if (!freeze)
             StartCoroutine(FreezeTime());
