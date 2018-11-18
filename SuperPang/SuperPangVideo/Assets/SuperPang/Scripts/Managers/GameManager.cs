@@ -3,12 +3,15 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum GameMode{PANIC, TOUR};
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
     public static bool inGame;
     public GameObject ready;
     public GameObject panel;
+    public GameMode gameMode; 
     [HideInInspector]
     public float time = 100;
     [HideInInspector]
@@ -33,6 +36,11 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<Player>();
         lm = FindObjectOfType<LifeManager>();
         fruits = FindObjectOfType<Fruits>();
+
+        if (SceneManager.GetActiveScene().name.Equals("Panic"))
+            gameMode = GameMode.PANIC;
+        else
+            gameMode = GameMode.TOUR;
     }
 
     void Start ()
@@ -43,21 +51,31 @@ public class GameManager : MonoBehaviour
 	
 	void Update ()
     {
-		if(BallManager.bm.balls.Count == 0 && HexagonManager.hm.hexagons.Count == 0)
-        {
-            inGame = false;
-            player.Win();
-            lm.LifesWin();
-            panel.SetActive(true);
-            panelPoints = panel.GetComponent<PanelPoints>();
-        }
+        if (Input.GetKeyDown(KeyCode.O))
+            PlayerPrefs.DeleteAll();
 
-        if (inGame)
+        if (gameMode == GameMode.TOUR)
         {
-            time -= Time.deltaTime;
-            timeText.text = "TIME: " + time.ToString("f0");
-        }
+            if (BallManager.bm.balls.Count == 0 && HexagonManager.hm.hexagons.Count == 0)
+            {
+                inGame = false;
+                player.Win();
+                lm.LifesWin();
+                panel.SetActive(true);
+                panelPoints = panel.GetComponent<PanelPoints>();
+            }
 
+            if (inGame)
+            {
+                time -= Time.deltaTime;
+                timeText.text = "TIME: " + time.ToString("f0");
+            }
+        }
+        else
+        {
+            if (BallManager.bm.balls.Count == 0 && HexagonManager.hm.hexagons.Count == 0 && BallsSpawn.bs.free)
+                BallsSpawn.bs.NewBall();
+        }
 	}
 
     public void UpdateBallsDestroyed()
@@ -65,9 +83,7 @@ public class GameManager : MonoBehaviour
         ballsDestroy++;
 
         if (ballsDestroy % Random.Range(5, 20) == 0 && BallManager.bm.balls.Count > 0)
-        {
             fruits.InstaciateFruit();
-        }
     }
 
     public void NextLevel()
@@ -80,8 +96,15 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         ready.SetActive(false);
-        BallManager.bm.StartGame();
-        HexagonManager.hm.StartGame();
+
+        if (gameMode == GameMode.TOUR)
+        {
+            BallManager.bm.StartGame();
+            HexagonManager.hm.StartGame();
+        }
+        else
+            BallsSpawn.bs.NewBall();
+
         inGame = true;
     }
 
