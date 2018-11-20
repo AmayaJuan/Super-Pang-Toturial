@@ -7,7 +7,16 @@ public class PressStart : MonoBehaviour
 
     float time;
 
-	void Update ()
+    void Start()
+    {
+        GameObject destroyOnLoad = FindObjectOfType<DontDestroy>().gameObject;
+
+        if (destroyOnLoad != null)
+            Destroy(destroyOnLoad);
+        
+    }
+
+    void Update ()
     {
         time += Time.deltaTime; //time = time + Time.deltaTime
 

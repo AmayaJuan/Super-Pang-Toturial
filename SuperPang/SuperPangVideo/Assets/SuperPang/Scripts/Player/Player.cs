@@ -71,7 +71,10 @@ public class Player : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        Invoke("ReloadLevel", 0.5f);
+        if (lm.lifes <= 0)
+            GameManager.gm.StartGameOver();
+        else
+            Invoke("ReloadLevel", 0.5f);
     }
 
     void ReloadLevel()

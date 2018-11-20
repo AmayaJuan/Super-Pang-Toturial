@@ -7,10 +7,10 @@ public class BallsSpawn : MonoBehaviour
     [HideInInspector]
     public bool free;
     public GameObject[] ballsPrefabs;
-    public GameObject[] hexagonsPrefabs;
+   // public GameObject[] hexagonsPrefabs;
 
     GameObject ball = null;
-    GameObject hexagon = null;
+    //GameObject hexagon = null;
     int dificulty = 0;
     float timeSpawn = 2f;
 
