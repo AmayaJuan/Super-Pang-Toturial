@@ -7,11 +7,22 @@ public class Player : MonoBehaviour
     public GameObject shield;
     [HideInInspector]
     public bool blink;
+    [HideInInspector]
+    public bool climb;
+    [HideInInspector]
+    public bool inGround;
+    [HideInInspector]
+    public bool isUp;
 
     bool rightWall;
     bool leftWall;
-    float speed = 4f;
-    float movement = 0;
+    float speedX = 4f;
+    float speedY = 4f;
+    float movementX = 0;
+    float movementY = 0;
+    float maxClimbY = 0;
+    float newY;
+    float defaultPosY;
     Rigidbody2D rb;
     Animator animator;
     SpriteRenderer sr;
@@ -25,14 +36,21 @@ public class Player : MonoBehaviour
         lm = FindObjectOfType<LifeManager>();
     }
 
+    void Start()
+    {
+        defaultPosY = transform.position.y;
+    }
+
     void Update()
     {
         if (GameManager.inGame)
         {
-            movement = Input.GetAxisRaw("Horizontal") * speed;
-            animator.SetInteger("velX", Mathf.RoundToInt(movement));
+            movementX = Input.GetAxisRaw("Horizontal") * speedX;
+            movementY = Input.GetAxisRaw("Vertical") * speedY;
+            animator.SetInteger("velX", Mathf.RoundToInt(movementX));
+            animator.SetInteger("velY", Mathf.RoundToInt(movementY));
 
-            if (movement < 0)
+            if (movementX < 0)
                 sr.flipX = true;
             else
                 sr.flipX = false;
@@ -46,20 +64,38 @@ public class Player : MonoBehaviour
             if (leftWall)
             {
                 if (Input.GetKey(KeyCode.LeftArrow))
-                    speed = 0;
+                    speedX = 0;
                 else if (Input.GetKey(KeyCode.RightArrow))
-                    speed = 4;
+                    speedX = 4;
             }
 
             if (rightWall)
             {
                 if (Input.GetKey(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
-                    speed = 0;
+                    speedX = 0;
                 else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
-                    speed = 4;
+                    speedX = 4;
             }
 
-            rb.MovePosition(rb.position + Vector2.right * movement * Time.fixedDeltaTime);
+            if (transform.position.y >= maxClimbY)
+                isUp = true;
+            else
+                isUp = false;
+
+            if (climb)
+            {
+                if ((Input.GetKey(KeyCode.UpArrow) && !isUp) || (Input.GetKey(KeyCode.DownArrow) && !inGround))
+                    speedY = 4f;
+                else
+                    speedY = 0f;
+            }
+            else
+                speedY = 0f;
+
+            if (movementX != 0)
+                rb.MovePosition(rb.position + Vector2.right * movementX * Time.fixedDeltaTime);
+            else if ((transform.position.y >= defaultPosY && climb && !isUp) || isUp && Input.GetKey(KeyCode.DownArrow))
+                rb.MovePosition(rb.position + Vector2.up * movementY * Time.fixedDeltaTime);
         }
     }
 
@@ -101,6 +137,14 @@ public class Player : MonoBehaviour
                         StartCoroutine(Lose());
                 }
             }
+
+            if (collision.gameObject.tag == "Ladder")
+            {
+                if (!isUp)
+                {
+                    maxClimbY = transform.position.y + collision.GetComponent<BoxCollider2D>().size.y - 0.2f;
+                }
+            }
         }
 
         if (!GameManager.inGame && (collision.gameObject.tag == "Right" || collision.gameObject.tag == "Left"))
@@ -118,6 +162,12 @@ public class Player : MonoBehaviour
             leftWall = true;
         else if (collision.gameObject.tag == "Right")
             rightWall = true;
+
+        if (collision.gameObject.tag == "Ladder")
+            climb = true;
+
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Platform")
+            inGround = true;
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -126,6 +176,12 @@ public class Player : MonoBehaviour
             leftWall = false;
         else if (collision.gameObject.tag == "Right")
             rightWall = false;
+
+        if (collision.gameObject.tag == "Ladder")
+            climb = false;
+
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Platform")
+            inGround = false;
     }
 
     public IEnumerator Blinking()

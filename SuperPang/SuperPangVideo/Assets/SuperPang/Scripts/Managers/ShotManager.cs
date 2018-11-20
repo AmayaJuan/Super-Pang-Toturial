@@ -36,7 +36,7 @@ public class ShotManager : MonoBehaviour
 	
 	void Update ()
     {
-        if (CanShot() && Input.GetKeyDown(KeyCode.X))
+        if (CanShot() && Input.GetKeyDown(KeyCode.X) && GameManager.inGame)
             Shot();
 
         if (numberOfShots == maxShots && GameObject.FindGameObjectsWithTag("Arrow").Length == 0 && GameObject.FindGameObjectsWithTag("Ancle").Length == 0)
