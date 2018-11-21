@@ -96,6 +96,12 @@ public class Player : MonoBehaviour
                 rb.MovePosition(rb.position + Vector2.right * movementX * Time.fixedDeltaTime);
             else if ((transform.position.y >= defaultPosY && climb && !isUp) || isUp && Input.GetKey(KeyCode.DownArrow))
                 rb.MovePosition(rb.position + Vector2.up * movementY * Time.fixedDeltaTime);
+
+            newY = Mathf.Clamp(transform.position.y, -2.5f, 8);
+            transform.position = new Vector2(transform.position.x, newY);
+
+            if (!inGround && !climb)
+                transform.position += new Vector3(movementX / 5, -1f) * Time.deltaTime * 3;
         }
     }
 
@@ -141,9 +147,12 @@ public class Player : MonoBehaviour
             if (collision.gameObject.tag == "Ladder")
             {
                 if (!isUp)
-                {
                     maxClimbY = transform.position.y + collision.GetComponent<BoxCollider2D>().size.y - 0.2f;
-                }
+            }
+
+            if (collision.gameObject.tag == "Platform" && transform.position.y < collision.gameObject.transform.position.y && inGround)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y + 0.4f);
             }
         }
 
@@ -166,7 +175,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Ladder")
             climb = true;
 
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Platform" && transform.position.y > collision.gameObject.transform.position.y)
             inGround = true;
     }
 
