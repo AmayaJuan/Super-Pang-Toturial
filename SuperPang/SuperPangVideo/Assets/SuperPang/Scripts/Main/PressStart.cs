@@ -25,7 +25,7 @@ public class PressStart : MonoBehaviour
         else
             pressStart.SetActive(false);
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
             SceneManager.LoadScene(1);
 	}
 }

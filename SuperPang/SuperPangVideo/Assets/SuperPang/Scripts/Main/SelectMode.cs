@@ -29,7 +29,7 @@ public class SelectMode : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.RightArrow))
                 tour = false;
 
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
                 SceneManager.LoadScene("Tour_01");
         }
         else
@@ -43,7 +43,7 @@ public class SelectMode : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftArrow))
                 tour = true;
 
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
                 SceneManager.LoadScene("Panic");
         }
 	}
