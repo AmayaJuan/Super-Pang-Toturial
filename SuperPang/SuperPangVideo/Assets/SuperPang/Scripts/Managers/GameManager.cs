@@ -106,7 +106,8 @@ public class GameManager : MonoBehaviour
 
     public void StartGameOver()
     {
-        StartCoroutine(GameOver());
+        if (gm != null)
+            StartCoroutine(GameOver());
     }
 
     public IEnumerator GameStart()

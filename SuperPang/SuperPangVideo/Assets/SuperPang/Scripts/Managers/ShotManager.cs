@@ -21,6 +21,7 @@ public class ShotManager : MonoBehaviour
 
         player = FindObjectOfType<Player>().transform;
         shotImage = FindObjectOfType<CurrentShotImage>();
+        anim = player.GetComponent<Animator>();
     }
 
     void Start ()
@@ -36,11 +37,14 @@ public class ShotManager : MonoBehaviour
 	
 	void Update ()
     {
-        if (CanShot() && Input.GetKeyDown(KeyCode.X) && GameManager.inGame)
+        if (CanShot() && (Input.GetKeyDown(KeyCode.X) || Buttons.shotButton) && GameManager.inGame)
             Shot();
 
         if (numberOfShots == maxShots && GameObject.FindGameObjectsWithTag("Arrow").Length == 0 && GameObject.FindGameObjectsWithTag("Ancle").Length == 0)
             numberOfShots = 0;
+
+        if (anim.GetBool("shot") && player.GetComponent<Player>().movementX != 0)
+            anim.SetBool("shot", false);
 	}
 
     bool CanShot()
@@ -52,6 +56,9 @@ public class ShotManager : MonoBehaviour
 
     void Shot()
     {
+        if (player.GetComponent<Rigidbody2D>().velocity == Vector2.zero)
+            anim.SetTrigger("shot");
+
         if (typeOfShot != 3)
             Instantiate(shots[typeOfShot], player.position, Quaternion.identity);
         else

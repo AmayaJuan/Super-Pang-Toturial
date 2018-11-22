@@ -13,13 +13,19 @@ public class Player : MonoBehaviour
     public bool inGround;
     [HideInInspector]
     public bool isUp;
+    [HideInInspector]
+    public float movementX = 0;
+    [HideInInspector]
+    public float horizontal = 0;
+    [HideInInspector]
+    public float movementY = 0;
+    [HideInInspector]
+    public float vertical = 0;
 
     bool rightWall;
     bool leftWall;
     float speedX = 4f;
     float speedY = 4f;
-    float movementX = 0;
-    float movementY = 0;
     float maxClimbY = 0;
     float newY;
     float defaultPosY;
@@ -45,8 +51,10 @@ public class Player : MonoBehaviour
     {
         if (GameManager.inGame)
         {
-            movementX = Input.GetAxisRaw("Horizontal") * speedX;
-            movementY = Input.GetAxisRaw("Vertical") * speedY;
+            //movementX = Input.GetAxisRaw("Horizontal") * speedX;
+            movementX = horizontal * speedX;
+            //movementY = Input.GetAxisRaw("Vertical") * speedY;
+            movementY = vertical * speedY;
             animator.SetInteger("velX", Mathf.RoundToInt(movementX));
             animator.SetInteger("velY", Mathf.RoundToInt(movementY));
 
@@ -63,17 +71,17 @@ public class Player : MonoBehaviour
         {
             if (leftWall)
             {
-                if (Input.GetKey(KeyCode.LeftArrow))
+                if (Input.GetKey(KeyCode.LeftArrow) || horizontal == -1)
                     speedX = 0;
-                else if (Input.GetKey(KeyCode.RightArrow))
+                else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || horizontal != 0)
                     speedX = 4;
             }
 
             if (rightWall)
             {
-                if (Input.GetKey(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow))
+                if (Input.GetKey(KeyCode.RightArrow) || horizontal == 1)
                     speedX = 0;
-                else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+                else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow) || horizontal != 0)
                     speedX = 4;
             }
 
@@ -84,7 +92,7 @@ public class Player : MonoBehaviour
 
             if (climb)
             {
-                if ((Input.GetKey(KeyCode.UpArrow) && !isUp) || (Input.GetKey(KeyCode.DownArrow) && !inGround))
+                if ((Input.GetKey(KeyCode.UpArrow) || vertical != 0) || (Input.GetKey(KeyCode.DownArrow) && !isUp && !inGround))
                     speedY = 4f;
                 else
                     speedY = 0f;
@@ -94,7 +102,7 @@ public class Player : MonoBehaviour
 
             if (movementX != 0)
                 rb.MovePosition(rb.position + Vector2.right * movementX * Time.fixedDeltaTime);
-            else if ((transform.position.y >= defaultPosY && climb && !isUp) || isUp && Input.GetKey(KeyCode.DownArrow))
+            else if ((transform.position.y >= defaultPosY && climb && !isUp) || isUp && Input.GetKey(KeyCode.DownArrow) || vertical != 0)
                 rb.MovePosition(rb.position + Vector2.up * movementY * Time.fixedDeltaTime);
 
             newY = Mathf.Clamp(transform.position.y, -2.5f, 8);
@@ -151,9 +159,7 @@ public class Player : MonoBehaviour
             }
 
             if (collision.gameObject.tag == "Platform" && transform.position.y < collision.gameObject.transform.position.y && inGround)
-            {
                 transform.position = new Vector3(transform.position.x, transform.position.y + 0.4f);
-            }
         }
 
         if (!GameManager.inGame && (collision.gameObject.tag == "Right" || collision.gameObject.tag == "Left"))
