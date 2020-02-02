@@ -63,9 +63,9 @@ public class ShotManager : MonoBehaviour
             Instantiate(shots[typeOfShot], player.position, Quaternion.identity);
         else
         {
-            Instantiate(shots[3], new Vector2(player.position.x + .5f, player.position.y + 1), Quaternion.Euler(new Vector3(0, 0, -5)));
+            Instantiate(shots[3], new Vector2(player.position.x + .5f, player.position.y + 1), Quaternion.Euler(new Vector3(0, 0, 5)));
             Instantiate(shots[3], new Vector2(player.position.x, player.position.y + 1), Quaternion.identity);
-            Instantiate(shots[3], new Vector2(player.position.x - .5f, player.position.y + 1), Quaternion.Euler(new Vector3(0, 0, 5)));
+            Instantiate(shots[3], new Vector2(player.position.x - .5f, player.position.y + 1), Quaternion.Euler(new Vector3(0, 0, -5)));
         }
         numberOfShots++;
     }
